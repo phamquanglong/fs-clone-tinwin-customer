@@ -11,6 +11,9 @@ import ProductsContainer from '../../components/product/ProductsContainer';
 import CartBtn from '../../components/buttons/CartBtn';
 import TopBar from '../../navigation/TopBar';
 import TopTabNavigation from '../../navigation/TopTabNavigation';
+import HotSale from '../Filter/HotSale';
+import Price from '../Filter/Price';
+import Name from '../Filter/Name';
 
 const DATA = [
     { id: 'a', title: 'Nước tăng lực', icon: require('../../images/cancel.png') },
@@ -18,7 +21,11 @@ const DATA = [
     { id: 'c', title: 'Coca cola', icon: require('../../images/cancel.png') }
 ];
 
-
+const data = [
+    { id: 1, name: 'Bán chạy', component: HotSale },
+    { id: 2, name: 'Giá', component: Price },
+    { id: 3, name: 'Tên A→Z', component: Name }
+]
 
 
 interface tagSearch {
@@ -84,7 +91,7 @@ const SearchResultScreen: React.FC = () => {
 
             </View>
             <View >
-                <TopBar />
+                <TopBar title={data} />
             </View>
 
 

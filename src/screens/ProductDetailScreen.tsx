@@ -1,7 +1,7 @@
-import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
-import {useRoute} from '@react-navigation/native';
-import {Image, SafeAreaView, Text, View} from 'react-native';
-import {Rating} from 'react-native-ratings';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { useRoute } from '@react-navigation/native';
+import { Image, SafeAreaView, Text, View } from 'react-native';
+import { Rating } from 'react-native-ratings';
 import CartBtn from '../components/buttons/CartBtn';
 import GoBackBtn from '../components/buttons/GoBackBtn';
 import SearchBtn from '../components/buttons/SearchBtn';
@@ -11,7 +11,7 @@ import StallAccount from '../components/stall/StallAccount';
 
 const ProductDetailScreen: React.FC = () => {
   const route = useRoute();
-  const {id} = route.params;
+  const { id } = route.params;
 
   const arr = [
     {

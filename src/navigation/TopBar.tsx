@@ -1,14 +1,19 @@
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Platform, SafeAreaView, Text, View } from 'react-native';
+import { Platform, SafeAreaView, ScrollView, Text, View } from 'react-native';
 
 import HotSale from '../screens/Filter/HotSale';
 import Name from '../screens/Filter/Name';
 import Price from '../screens/Filter/Price';
 
 
-const TabBar: React.FC = () => {
+interface Props {
+    title: object[]
+}
+
+const TopBar: React.FC<Props> = (props) => {
     const Tab = createMaterialTopTabNavigator();
+    const { title } = props
 
     const screenOptions = ({ route }) => ({
 
@@ -19,6 +24,7 @@ const TabBar: React.FC = () => {
 
         },
         tabBarActiveTintColor: '#636366',
+
         tabBarStyle: {
             margin: 10,
             backgroundColor: 'white',
@@ -30,19 +36,22 @@ const TabBar: React.FC = () => {
 
         }
 
+
     });
 
     return (
         <View className={`flex-1 h-screen`}>
 
+
             <Tab.Navigator screenOptions={screenOptions}>
-                <Tab.Screen name="Bán chạy" component={HotSale} />
-                <Tab.Screen name="Giá" component={Price} />
-                <Tab.Screen name="Tên A→Z" component={Name} />
+                {
+                    title.map(item => <Tab.Screen name={item.name} component={item.component} />)
+                }
+
             </Tab.Navigator>
         </View>
 
     );
 };
 
-export default TabBar;
+export default TopBar;

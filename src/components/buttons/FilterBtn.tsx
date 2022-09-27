@@ -28,7 +28,7 @@ const FilterBtn: React.FC<Props> = (props) => {
         <View>
             <TouchableOpacity
                 onPress={() => setModalVisible(true)}
-                className={`border border-gray-200 justify-center px-4 py-3 ml-3 rounded-lg`}>
+                className={`border border-gray-200 justify-center px-4 py-4 ml-3 rounded-lg`}>
                 <Image source={require('../../assets/icons/filter.png')} style={{ tintColor: color }} />
             </TouchableOpacity>
             <Modal animationType="slide" transparent={true} visible={modalVisible}>
