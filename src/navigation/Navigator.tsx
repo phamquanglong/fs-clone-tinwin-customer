@@ -14,7 +14,7 @@ import TabBar from './TabBar';
 import Cart from '../screens/Cart/CartScreen';
 import SearchScreen from '../screens/Search/SearchScreen';
 import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
-
+import DetailCategoriesScreen from '../screens/Shop/DetailCategoriesScreen';
 import SearchResultScreen from '../screens/Search/SearchResultScreen';
 
 import ProductDetailScreen from '../screens/ProductDetailScreen';
@@ -83,6 +83,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name='ShopDetail'
           component={ShopDetailScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name='DetailCategories'
+          component={DetailCategoriesScreen}
           options={screenOptions}
         />
 

@@ -21,26 +21,25 @@ const TopBar: React.FC<Props> = (props) => {
         tabBarIndicatorStyle: {
             backgroundColor: '#FC832D',
             height: 3,
+            color: '#FC832D',
 
+            marginRight: 10
         },
-        tabBarActiveTintColor: '#636366',
+        tabBarActiveTintColor: '#FC832D',
+        tabBarInactiveTintColor: '#636366',
 
         tabBarStyle: {
-            margin: 10,
+            color: '#FC832D',
             backgroundColor: 'white',
-
+            marginRight: 6,
+            marginLeft: 6,
         },
-        indicatorStyle: {
-            backgroundColor: '#333',
-            height: 4,
-
-        }
 
 
     });
 
     return (
-        <View className={`flex-1 h-screen`}>
+        <SafeAreaView className={`flex-1 h-`}>
 
 
             <Tab.Navigator screenOptions={screenOptions}>
@@ -49,7 +48,9 @@ const TopBar: React.FC<Props> = (props) => {
                 }
 
             </Tab.Navigator>
-        </View>
+
+
+        </SafeAreaView>
 
     );
 };

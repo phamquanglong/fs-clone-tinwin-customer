@@ -90,7 +90,7 @@ const SearchResultScreen: React.FC = () => {
                 </View>
 
             </View>
-            <View >
+            <View className={`flex-1`}>
                 <TopBar title={data} />
             </View>
 

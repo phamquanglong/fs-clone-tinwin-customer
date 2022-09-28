@@ -4,7 +4,7 @@ import { data } from '../../Data/Data';
 
 const HotSale: React.FC = () => {
     return (
-        <ScrollView className="bg-white h-screen mb-48">
+        <ScrollView className="bg-white flex-1">
             <View >
                 <ProductsContainer
                     flatlistStyle={{ justifyContent: 'space-evenly' }}

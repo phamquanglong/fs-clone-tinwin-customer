@@ -17,7 +17,7 @@ const ProductsContainer: React.FC<Props> = (props: Props) => {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <View>
+    <View className={`flex-1`}>
       <HomeTitle title={title} icon={icon} textBtn={textBtn} />
       <FlatList
         onScrollBeginDrag={() => setIsEnd(false)}

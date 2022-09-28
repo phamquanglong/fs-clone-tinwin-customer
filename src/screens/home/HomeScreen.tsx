@@ -104,6 +104,7 @@ const HomeScreen: React.FC = () => {
           title="Gian hàng nổi bật"
           icon={require('../../assets/icons/home/stall.png')}
           data={data}
+          style="items-center mb-5 "
         />
 
         <ProductsContainer

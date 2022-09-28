@@ -15,7 +15,7 @@ const item = [
 
 const ShopDescription: React.FC = () => {
     return (
-        <SafeAreaView className="bg-white flex-1">
+        <ScrollView nestedScrollEnabled={true} className="bg-white flex-1">
 
             <View>
                 <ShopDetailContainer
@@ -30,6 +30,7 @@ const ShopDescription: React.FC = () => {
 
             <View>
                 <ProductsContainer
+                    flatlistStyle={{ justifyContent: 'space-evenly' }}
                     textBtn="Xem tất cả"
                     data={data}
                     title="Sản phẩm mới"
@@ -38,7 +39,7 @@ const ShopDescription: React.FC = () => {
             </View>
 
 
-        </SafeAreaView>
+        </ScrollView>
     );
 };
 

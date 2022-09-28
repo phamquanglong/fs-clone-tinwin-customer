@@ -14,16 +14,18 @@ import CategoryCard from './CategoryCard';
 import { useNavigation } from '@react-navigation/native';
 
 
+
 interface Props {
   data: object[];
   title: string;
   icon: ImageSourcePropType;
   flatlistStyle?: object;
   textBtn: string;
+  style?: string
 }
 
 const CategoriesContainer: React.FC<Props> = (props: Props) => {
-  const { data, icon, title, flatlistStyle, textBtn } = props;
+  const { data, icon, title, flatlistStyle, textBtn, style } = props;
 
   const [isEnd, setIsEnd] = useState(false);
   const navigation = useNavigation()
@@ -47,7 +49,7 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
         keyExtractor={key => key.id}
         renderItem={({ item }) =>
           title === 'Ngành hàng' ? (
-            <CategoryCard image={item.image} text={item.name} />
+            <CategoryCard image={item.image} text={item.name} style={style} />
           ) : (
             <StallCard id={item.id} image={item.image} text={item.name} onPress={() => navigation.navigate('ShopDetail', { id: item.id })} />
           )

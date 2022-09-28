@@ -6,6 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import ListCategories from '../../components/item/ListCategories';
 import TitleSearch from '../../components/item/TitleSearch';
 import InputItem from '../../components/InputItem';
+import TabBar from '../../navigation/TopBar';
+import CategoriesContainer from '../../components/categories/CategoriesContainer';
 
 
 const DATA = [
@@ -86,6 +88,7 @@ const SearchScreen: React.FC = () => {
                     </View>
 
                     <ListCategories />
+
                 </View>
 
 
