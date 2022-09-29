@@ -27,7 +27,7 @@ const ShopDetailScreen: React.FC = () => {
     return (
         <SafeAreaView className="bg-white flex-1">
 
-            <View >
+            <ScrollView className={`flex-none`}>
                 <View className="flex-row justify-between p-5 absolute z-10 w-full">
                     <GoBackBtn
                         style="py-3 px-6 bg-black-opacity rounded-lg w-10 items-center justify-center"
@@ -53,9 +53,9 @@ const ShopDetailScreen: React.FC = () => {
                         <IntroductDetailShop title='Gian hàng An An' value='1234k' rating={4.5} />
                     </View>
                 </View>
-            </View>
 
-            <View className={`flex-1`}>
+            </ScrollView>
+            <View className={`flex-1 h-screen`}>
                 <TopBar title={item} />
             </View>
 

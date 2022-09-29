@@ -33,8 +33,8 @@ const DetailCategoriesScreen: React.FC = () => {
                     <FilterBtn />
                 </View>
             </View>
-            <View className={`flex-row px-6`}>
-                {sortLabel.map(item => <SortOption id={item.id} title={item.title} />)}
+            <View className={`flex-row`}>
+                {sortLabel.map(item => <SortOption label={sortLabel} />)}
             </View>
             <View className={`bg-white flex-1`}>
                 <ProductsContainer
