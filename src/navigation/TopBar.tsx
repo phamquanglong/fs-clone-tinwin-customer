@@ -39,8 +39,7 @@ const TopBar: React.FC<Props> = (props) => {
     });
 
     return (
-        <SafeAreaView className={`flex-1 h-`}>
-
+        <SafeAreaView className={`flex-1`}>
 
             <Tab.Navigator screenOptions={screenOptions}>
                 {

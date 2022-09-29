@@ -25,7 +25,7 @@ const FilterBtn: React.FC<Props> = (props) => {
     const { style, color } = props;
 
     return (
-        <View>
+        <View className={`${style}`}>
             <TouchableOpacity
                 onPress={() => setModalVisible(true)}
                 className={`border border-gray-200 justify-center px-4 py-4 ml-3 rounded-lg`}>

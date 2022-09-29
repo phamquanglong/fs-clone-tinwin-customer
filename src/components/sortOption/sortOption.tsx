@@ -3,19 +3,13 @@ import React, { useState } from 'react';
 import { Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 interface Props {
-    id: number
-    title: string
-    style?: string
+    label: object[]
 }
 
-const sortLabel = [
-    { id: 1, title: "Mới nhất" },
-    { id: 2, title: "Bán chạy", style: 'border-x' },
-    { id: 3, title: "Giá" }
-]
 
-const SortOption: React.FC = () => {
 
+const SortOption: React.FC<Props> = (props) => {
+    const { label } = props
     const [status, setStatus] = useState('Mới nhất')
     const setStatusFilter = (item: string) => {
         setStatus(item)
@@ -23,7 +17,7 @@ const SortOption: React.FC = () => {
 
     return (
         <View className={`flex-row px-6 mt-6`}>
-            {sortLabel.map(item =>
+            {label.map(item =>
                 <TouchableOpacity
                     className={`w-28 items-center ${item.style}`}
                     key={item.id}

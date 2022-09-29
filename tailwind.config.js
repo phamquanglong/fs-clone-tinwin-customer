@@ -7,7 +7,8 @@ module.exports = {
         'Rectanger': 'rgba(0, 0, 0, 0.1)',
       },
       backgroundColor: {
-        'backgroundTag': 'rgba(252, 131, 45, 0.1)'
+        'backgroundTag': 'rgba(252, 131, 45, 0.1)',
+        'backgroundBreak': 'rgba(0, 0, 0, 0.05)'
       }
     },
   },

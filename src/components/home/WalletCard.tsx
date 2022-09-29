@@ -2,21 +2,23 @@ import {
   faArrowAltCircleRight,
   faEyeSlash,
 } from '@fortawesome/free-regular-svg-icons';
-import {faClockRotateLeft, faRefresh} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {useState} from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import { faClockRotateLeft, faRefresh } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { useState } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const WalletCard: React.FC = () => {
   const [showPrice, setShowPrice] = useState<boolean>(false);
+  const navigation = useNavigation()
 
   return (
     <LinearGradient
       className={`rounded-lg p-3 m-3`}
       colors={['#FD7D00', '#FEB336', '#FD7D00']}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 0.5}}
+      start={{ x: 0, y: 0.5 }}
+      end={{ x: 1, y: 0.5 }}
       locations={[0, 0.5, 1]}>
       <View className="flex-row">
         <Image
@@ -52,7 +54,7 @@ const WalletCard: React.FC = () => {
       </View>
       <View className="h-px bg-gray-100 my-3"></View>
       <View className="flex-row justify-between">
-        <TouchableOpacity className="flex-row items-center">
+        <TouchableOpacity className="flex-row items-center" onPress={() => navigation.navigate('Recharge')}>
           <FontAwesomeIcon icon={faArrowAltCircleRight} color="white" />
           <Text className="text-white ml-3">Nạp tiền</Text>
         </TouchableOpacity>

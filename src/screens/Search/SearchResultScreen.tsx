@@ -14,6 +14,7 @@ import TopTabNavigation from '../../navigation/TopTabNavigation';
 import HotSale from '../Filter/HotSale';
 import Price from '../Filter/Price';
 import Name from '../Filter/Name';
+import GoBackBtn from '../../components/buttons/GoBackBtn';
 
 const DATA = [
     { id: 'a', title: 'Nước tăng lực', icon: require('../../images/cancel.png') },
@@ -62,16 +63,11 @@ const SearchResultScreen: React.FC = () => {
 
             <View className={`mx-2`}>
                 <View className={`flex-row`}>
-                    <View className={'self-center mr-4'}>
-                        <TouchableOpacity onPress={() => { navigation.goBack() }}>
-                            <FontAwesomeIcon color='#1F1F1F' icon={faChevronLeft} />
-                        </TouchableOpacity>
-
-                    </View>
+                    <GoBackBtn style='self-center mr-4 ' size={25} />
 
                     <SearchBar placeholder='Tìm kiếm' width={200} />
                     <View>
-                        <FilterBtn />
+                        <FilterBtn style='self-center mr-1 h-3' />
                     </View>
                     <CartBtn
                         color="#FD7D00"

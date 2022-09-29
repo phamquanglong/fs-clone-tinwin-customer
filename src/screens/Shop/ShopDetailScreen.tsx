@@ -11,6 +11,7 @@ import ShopDescription from './ShopDescription';
 import CategoriesOfShop from './CategoriesOfShop';
 import ProductsOfShop from './ProductsOfShop';
 import { useNavigation } from '@react-navigation/native';
+import ReactNativeParallaxHeader from 'react-native-parallax-header';
 
 
 const item = [
@@ -27,11 +28,12 @@ const ShopDetailScreen: React.FC = () => {
     return (
         <SafeAreaView className="bg-white flex-1">
 
-            <ScrollView className={`flex-none`}>
+            <View>
                 <View className="flex-row justify-between p-5 absolute z-10 w-full">
                     <GoBackBtn
-                        style="py-3 px-6 bg-black-opacity rounded-lg w-10 items-center justify-center"
+                        style="py-3 bg-black-opacity rounded-lg w-10 items-center justify-center"
                         color="white"
+                        size={25}
                     />
                     <SearchBtnHome placeholder='Tìm kiếm' style='text-white' color='white' onPress={() => navigation.navigate('Search')} />
                     <View className="flex-row">
@@ -54,8 +56,8 @@ const ShopDetailScreen: React.FC = () => {
                     </View>
                 </View>
 
-            </ScrollView>
-            <View className={`flex-1 h-screen`}>
+            </View>
+            <View className={`flex-1`}>
                 <TopBar title={item} />
             </View>
 

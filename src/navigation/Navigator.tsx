@@ -21,6 +21,7 @@ import ProductDetailScreen from '../screens/ProductDetailScreen';
 import TopTabNavigation from './TopTabNavigation';
 import TopBar from './TopBar';
 import ShopDetailScreen from '../screens/Shop/ShopDetailScreen';
+import RechargeScreen from '../screens/Recharge/RechargeScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -88,6 +89,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name='DetailCategories'
           component={DetailCategoriesScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name='Recharge'
+          component={RechargeScreen}
           options={screenOptions}
         />
 
