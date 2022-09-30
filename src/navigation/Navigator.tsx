@@ -16,7 +16,7 @@ import SearchScreen from '../screens/Search/SearchScreen';
 import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
 import DetailCategoriesScreen from '../screens/Shop/DetailCategoriesScreen';
 import SearchResultScreen from '../screens/Search/SearchResultScreen';
-
+import RechargeHistoryScreen from '../screens/Recharge/RechargeHistoryScreen';
 import ProductDetailScreen from '../screens/ProductDetailScreen';
 import TopTabNavigation from './TopTabNavigation';
 import TopBar from './TopBar';
@@ -94,6 +94,11 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name='Recharge'
           component={RechargeScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name='RechargeHistory'
+          component={RechargeHistoryScreen}
           options={screenOptions}
         />
 

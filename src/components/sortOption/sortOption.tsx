@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import { Platform, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 interface Props {
@@ -10,10 +10,17 @@ interface Props {
 
 const SortOption: React.FC<Props> = (props) => {
     const { label } = props
-    const [status, setStatus] = useState('Mới nhất')
+    const [status, setStatus] = useState(label[0].title)
     const setStatusFilter = (item: string) => {
         setStatus(item)
     }
+
+    const renderItem = () => (
+        <View>
+            {/* <item.component /> */}
+            <Text>Check</Text>
+        </View>
+    )
 
     return (
         <View className={`flex-row px-6 mt-6`}>
@@ -25,8 +32,6 @@ const SortOption: React.FC<Props> = (props) => {
                     <Text className={`${status === item.title ? 'text-[#FC832D]' : 'text-[#48484A]'}`}>{item.title}</Text>
                 </TouchableOpacity>)}
         </View>
-
-
     )
 }
 

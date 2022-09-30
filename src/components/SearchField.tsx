@@ -5,6 +5,8 @@ import {
     StyleSheet,
     TouchableOpacity,
     Image,
+    Text,
+    StatusBar
 } from "react-native";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -26,18 +28,25 @@ export const SearchBar: React.FC<TextFieldProps> = ({
 
     return (
 
-        <View className={`flex-row  h-[45px] py-3.5
+        <View className={`flex-row  h-[45px] 
         rounded-lg border-solid border-[1px] border-gray-200 px-3.5`}
             style={{ width: width }}
         >
-            <FontAwesomeIcon icon={faMagnifyingGlass} color='#7B7B80' />
+            <StatusBar backgroundColor={'#ffffff'} />
+            <View className="pt-3.5">
+                <FontAwesomeIcon icon={faMagnifyingGlass} color='#7B7B80' size={18} />
+            </View>
+
             <TextInput
-                className={`pl-2`}
+
                 placeholder={placeholder}
                 autoCapitalize='none'
                 onChangeText={(text) => setSearchText(text)}
-            // value={searchText}
+                value={searchText}
             />
+
+
+            {/* <Text className={style}>{placeholder ? placeholder : 'Nhập từ khoá tìm kiếm'}</Text> */}
 
         </View >
 

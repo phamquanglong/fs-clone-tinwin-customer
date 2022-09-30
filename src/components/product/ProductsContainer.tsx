@@ -20,7 +20,7 @@ const ProductsContainer: React.FC<Props> = (props: Props) => {
     <View className={`flex-1`}>
       <HomeTitle title={title} icon={icon} textBtn={textBtn} />
       <FlatList
-        onScrollBeginDrag={() => setIsEnd(false)}
+        // onScrollBeginDrag={() => setIsEnd(false)}
         onEndReached={() => setIsEnd(true)}
         showsHorizontalScrollIndicator={false}
         horizontal={title === 'Sản phẩm nổi bật' ? true : false}

@@ -2,9 +2,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Platform, SafeAreaView, ScrollView, Text, View } from 'react-native';
 
-import HotSale from '../screens/Filter/HotSale';
-import Name from '../screens/Filter/Name';
-import Price from '../screens/Filter/Price';
 
 
 interface Props {
@@ -41,7 +38,8 @@ const TopBar: React.FC<Props> = (props) => {
     return (
         <SafeAreaView className={`flex-1`}>
 
-            <Tab.Navigator screenOptions={screenOptions}>
+            <Tab.Navigator screenOptions={screenOptions} >
+
                 {
                     title.map(item => <Tab.Screen name={item.name} component={item.component} />)
                 }

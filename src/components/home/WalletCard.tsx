@@ -58,7 +58,7 @@ const WalletCard: React.FC = () => {
           <FontAwesomeIcon icon={faArrowAltCircleRight} color="white" />
           <Text className="text-white ml-3">Nạp tiền</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center">
+        <TouchableOpacity className="flex-row items-center" onPress={() => navigation.navigate('RechargeHistory')}>
           <FontAwesomeIcon icon={faClockRotateLeft} color="white" />
           <Text className="text-white ml-3">Lịch sử giao dịch</Text>
         </TouchableOpacity>
