@@ -8,10 +8,11 @@ interface Props {
   style?: string;
   value?: string;
   setValue?: React.Dispatch<React.SetStateAction<any>>;
+  keyboardType?: string;
 }
 
 const InputItem: React.FC<Props> = (props: Props) => {
-  const {title, placeholder, style, value, setValue} = props;
+  const {title, placeholder, style, value, setValue, keyboardType} = props;
 
   return (
     <View className={style}>
@@ -28,6 +29,8 @@ const InputItem: React.FC<Props> = (props: Props) => {
         </View>
       )}
       <TextInput
+        maxLength={keyboardType !== undefined ? 10 : undefined}
+        keyboardType={keyboardType}
         onChangeText={e => setValue !== undefined && setValue(e)}
         value={value}
         placeholder={placeholder}

@@ -1,3 +1,8 @@
-const GET_USER = 'GET_USER';
+import { UPDATE_INFO_USER } from "./constants";
 
-export {GET_USER};
+const updateInfo = (data: object) => ({
+    type: UPDATE_INFO_USER,
+    payload: data
+})
+
+export {updateInfo}

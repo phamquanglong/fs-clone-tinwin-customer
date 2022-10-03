@@ -2,39 +2,61 @@ import {faClose, faEllipsisVertical} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
-import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Modal,
+  Text,
+  TouchableOpacity,
+  View,
+  ImageSourcePropType,
+} from 'react-native';
+import {RadioButton} from 'react-native-paper';
+import {colors} from '../../assets/colors';
+import {NAVIGATE_ADD_NEW_ADDRESS} from '../../navigation/navigate';
 
 interface Props {
   name: string;
   phone: string;
   address: string;
+  id: number;
+  onPress?: () => void;
+  icon?: ImageSourcePropType;
 }
 
 const AddressItem: React.FC<Props> = (props: Props) => {
-  const {name, phone, address} = props;
+  const {name, phone, address, onPress, icon, id} = props;
   const [optionsVisible, setOptionsVisible] = useState(false);
 
   const navigation = useNavigation();
 
+  const hideOptions = () => {
+    setOptionsVisible(false);
+  };
+
+  const changeAddress = () => {
+    navigation.navigate(NAVIGATE_ADD_NEW_ADDRESS, {
+      title: 'Sửa địa chỉ',
+      item: {
+        name: name,
+        phone: phone,
+        address: address,
+      },
+    });
+  };
+
   return (
     <View>
       <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('AddNewAddress', {
-            title: 'Sửa địa chỉ',
-            item: {
-              name: name,
-              phone: phone,
-              address: address,
-            },
-          })
-        }
+        onPress={onPress}
         className="flex-row p-5 justify-between relative">
         <View className="flex-row">
-          <Image
-            source={require('../../assets/icons/account/location.png')}
-            className="m-3 h-6 w-6"
-          />
+          {icon !== undefined ? (
+            <Image source={icon} className="m-3 h-6 w-6" />
+          ) : (
+            <View className="h-3">
+              <RadioButton value={id} color={colors.primary} />
+            </View>
+          )}
           <View>
             <Text className="font-bold text-xl text-black">{name}</Text>
             <Text>{phone}</Text>
@@ -42,9 +64,11 @@ const AddressItem: React.FC<Props> = (props: Props) => {
           </View>
         </View>
 
-        <TouchableOpacity onPress={() => setOptionsVisible(!optionsVisible)}>
-          <FontAwesomeIcon icon={faEllipsisVertical} size={25} />
-        </TouchableOpacity>
+        {icon !== undefined && (
+          <TouchableOpacity onPress={() => setOptionsVisible(!optionsVisible)}>
+            <FontAwesomeIcon icon={faEllipsisVertical} size={25} />
+          </TouchableOpacity>
+        )}
       </TouchableOpacity>
 
       <View className="h-1.5 bg-gray-100"></View>
@@ -56,13 +80,14 @@ const AddressItem: React.FC<Props> = (props: Props) => {
           visible={optionsVisible}>
           <TouchableOpacity
             className="bg-black-opacity h-full"
-            onPress={() => setOptionsVisible(false)}></TouchableOpacity>
+            onPress={hideOptions}
+          />
           <View
             className="bg-white w-full rounded-lg absolute self-center bottom-0 justify-evenly"
             style={{elevation: 10}}>
             <View className="flex-row items-center justify-between px-3 py-5">
               <Text className="text-xl text-black">Tuỳ chọn</Text>
-              <TouchableOpacity onPress={() => setOptionsVisible(false)}>
+              <TouchableOpacity onPress={hideOptions}>
                 <FontAwesomeIcon icon={faClose} size={20} />
               </TouchableOpacity>
             </View>
@@ -73,16 +98,7 @@ const AddressItem: React.FC<Props> = (props: Props) => {
               </TouchableOpacity>
               <TouchableOpacity
                 className="p-3 border-orange-primary border-2 rounded-lg"
-                onPress={() =>
-                  navigation.navigate('AddNewAddress', {
-                    title: 'Sửa địa chỉ',
-                    item: {
-                      name: name,
-                      phone: phone,
-                      address: address,
-                    },
-                  })
-                }>
+                onPress={changeAddress}>
                 <Text className="text-orange-primary">Chỉnh sửa</Text>
               </TouchableOpacity>
               <TouchableOpacity className="p-3 border-orange-primary border-2 rounded-lg">

@@ -2,21 +2,26 @@ import {
   faArrowAltCircleRight,
   faEyeSlash,
 } from '@fortawesome/free-regular-svg-icons';
-import {faClockRotateLeft, faRefresh} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {useState} from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import { faClockRotateLeft, faRefresh } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { useState } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { colors } from '../../assets/colors';
 
 const WalletCard: React.FC = () => {
   const [showPrice, setShowPrice] = useState<boolean>(false);
 
+  const onPressEye = () => {
+    setShowPrice(!showPrice);
+  };
+
   return (
     <LinearGradient
-      className={`rounded-lg p-3 m-3`}
-      colors={['#FD7D00', '#FEB336', '#FD7D00']}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 0.5}}
+      className={`rounded-lg p-3 mx-3 mb-3`}
+      colors={[colors.primary, colors.primaryToGradient, colors.primary]}
+      start={{ x: 0, y: 0.5 }}
+      end={{ x: 1, y: 0.5 }}
       locations={[0, 0.5, 1]}>
       <View className="flex-row">
         <Image
@@ -33,9 +38,7 @@ const WalletCard: React.FC = () => {
 
       <View className="flex-row items-center mt-3">
         <Text className="text-white">Số dư ví</Text>
-        <TouchableOpacity
-          className="px-3"
-          onPress={() => setShowPrice(!showPrice)}>
+        <TouchableOpacity className="px-3" onPress={onPressEye}>
           <FontAwesomeIcon icon={faEyeSlash} color="white" />
         </TouchableOpacity>
       </View>
@@ -47,17 +50,17 @@ const WalletCard: React.FC = () => {
           <Text className="text-white text-3xl font-bold">******</Text>
         )}
         <TouchableOpacity className="ml-3">
-          <FontAwesomeIcon icon={faRefresh} color="white" />
+          <FontAwesomeIcon icon={faRefresh} color={`${colors.white}`} />
         </TouchableOpacity>
       </View>
       <View className="h-px bg-gray-100 my-3"></View>
       <View className="flex-row justify-between">
         <TouchableOpacity className="flex-row items-center">
-          <FontAwesomeIcon icon={faArrowAltCircleRight} color="white" />
+          <FontAwesomeIcon icon={faArrowAltCircleRight} color={`${colors.white}`} />
           <Text className="text-white ml-3">Nạp tiền</Text>
         </TouchableOpacity>
         <TouchableOpacity className="flex-row items-center">
-          <FontAwesomeIcon icon={faClockRotateLeft} color="white" />
+          <FontAwesomeIcon icon={faClockRotateLeft} color={`${colors.white}`} />
           <Text className="text-white ml-3">Lịch sử giao dịch</Text>
         </TouchableOpacity>
       </View>

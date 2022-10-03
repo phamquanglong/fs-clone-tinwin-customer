@@ -3,10 +3,10 @@ import {
   faFacebook,
   faGooglePlus,
 } from '@fortawesome/free-brands-svg-icons';
-import {faEyeSlash} from '@fortawesome/free-regular-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {useNavigation} from '@react-navigation/native';
-import {useState} from 'react';
+import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
 import {
   Image,
   SafeAreaView,
@@ -16,14 +16,21 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { colors } from '../../assets/colors';
 import BtnPrimary from '../../components/BtnPrimary';
-import {style} from './style';
+import { Forgot_passWord_Screen, LoginSMS_Screen, Register_Screen, TabBar } from '../../constant/route';
+import { style } from './style';
 
-const Login: React.FC = ({}) => {
+const Login: React.FC = ({ }) => {
   const navigation = useNavigation();
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [userName, setUserName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  const onPressRoute = (route: string) => {
+    navigation.navigate(route)
+  }
+
   return (
     <SafeAreaView style={style.container}>
       <View>
@@ -37,7 +44,7 @@ const Login: React.FC = ({}) => {
         </View>
       </View>
       <View style={style.loginView}>
-        <View style={{marginBottom: 20}}>
+        <View >
           <Text style={style.textDescription}>Email / Số điện thoại</Text>
           <TextInput
             style={style.input}
@@ -56,23 +63,16 @@ const Login: React.FC = ({}) => {
             secureTextEntry={isPasswordSecure}
             onChange={value => setPassword(value)}
           />
-          <View
-            style={{
-              position: 'absolute',
-              right: 20,
-              top: 40,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+          <View>
             <TouchableOpacity
               onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
               onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}>
               <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
             </TouchableOpacity>
-            <Text style={{color: '#AEAEB2'}}> | </Text>
+            <Text > | </Text>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('ForgotPassword');
+                onPressRoute(Forgot_passWord_Screen)
               }}>
               <Text style={style.textForgot}>Quên ?</Text>
             </TouchableOpacity>
@@ -82,60 +82,41 @@ const Login: React.FC = ({}) => {
       <View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('LoginSMS');
+            onPressRoute(LoginSMS_Screen)
           }}>
           <Text style={style.textSMS} className="self-end mr-4">
             Đăng nhập bằng sms
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={{marginTop: 40, marginBottom: 31}}>
+      <View>
         <BtnPrimary
           style="items-center p-3"
           text="Đăng nhập"
-          onPress={() => navigation.navigate('TabBar')}
+          onPress={onPressRoute(TabBar)}
         />
       </View>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <View style={{flex: 1, height: 1, backgroundColor: '#F2F2F2'}} />
+      <View>
+        <View />
         <View>
-          <Text style={{width: 130, textAlign: 'center', color: '#A2A2A2'}}>
+          <Text>
             Hoặc tiếp tục với
           </Text>
         </View>
-        <View style={{flex: 1, height: 1, backgroundColor: '#F2F2F2'}} />
+        <View />
       </View>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          width: 200,
-          alignSelf: 'center',
-          marginTop: 30,
-        }}>
-        <FontAwesomeIcon icon={faFacebook} color="#3D5E96" size={55} />
-        <FontAwesomeIcon icon={faGooglePlus} color="#5089E8" size={55} />
-        <FontAwesomeIcon icon={faApple} color="#000000" size={55} />
+      <View>
+        <FontAwesomeIcon icon={faFacebook} color={`${colors.lightBlue}`} size={55} />
+        <FontAwesomeIcon icon={faGooglePlus} color={`${colors.blue}`} size={55} />
+        <FontAwesomeIcon icon={faApple} color={`${colors.black}`} size={55} />
       </View>
-      <View
-        style={{
-          alignSelf: 'center',
-          justifyContent: 'flex-end',
-          marginTop: 140,
-        }}>
-        <Text
-          style={{
-            color: '#8E8E93',
-            fontSize: 14,
-            fontWeight: '400',
-            lineHeight: 18,
-          }}>
+      <View>
+        <Text>
           Bạn mới biết đến tinwin?{' '}
           <TouchableOpacity
             className="mt-3"
-            onPress={() => navigation.navigate('Register')}>
-            <Text style={{color: '#FC832D', marginTop: 3}}>Đăng ký</Text>
+            onPress={onPressRoute(Register_Screen)}>
+            <Text>Đăng ký</Text>
           </TouchableOpacity>
         </Text>
       </View>

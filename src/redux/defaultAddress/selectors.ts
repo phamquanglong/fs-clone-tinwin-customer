@@ -1,0 +1,1 @@
+export const getDefaultAddressState = (state: any) => state.defaultAddress

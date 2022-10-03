@@ -1,4 +1,4 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AccountScreen from './AccountScreen';
 import ChangeInfoScreen from './ChangeInfoScreen';
 import SettingsScreen from './SettingsScreen';

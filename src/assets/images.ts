@@ -1,3 +1,10 @@
-import React from "react"
 
-export const panelImage: string = './images/panel.png'
+export const filter_img = require('./icons/filter.png')
+export const LOGO_TINWIN_PRIMARY = require('./logoTinwinPrimary.png')
+export const onboarding1 = require('./onboarding/onboarding1.png')
+export const onboarding2 = require('./onboarding/onboarding2.png')
+export const onboarding3 = require('./onboarding/onboarding3.png')
+export const Industry_icon = require('./icons/home/industry.png')
+export const stall_icon = require('./icons/home/stall.png')
+export const outstanding_icon = require('./icons/home/outstanding.png')
+export const cancel_icon = require('../images/cancel.png')

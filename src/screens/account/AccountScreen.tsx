@@ -10,6 +10,10 @@ import {
 import AccountContainer from '../../components/account/AccountContainer';
 import AccountHeader from '../../components/account/AccountHeader';
 import AccountInfo from '../../components/account/AccountInfo';
+import {
+  NAVIGATE_ADDRESS,
+  NAVIGATE_SOCIAL_NETWORK,
+} from '../../navigation/navigate';
 
 const AccountScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -35,7 +39,7 @@ const AccountScreen: React.FC = () => {
           {
             icon: require('../../assets/icons/account/a-search1.png'),
             text: 'Tài khoản Mạng xã hội',
-            onPress: () => navigation.navigate('SocialNetwork'),
+            onPress: () => navigation.navigate(NAVIGATE_SOCIAL_NETWORK),
           },
           {
             icon: require('../../assets/icons/account/Card.png'),
@@ -44,7 +48,7 @@ const AccountScreen: React.FC = () => {
           {
             icon: require('../../assets/icons/account/location.png'),
             text: 'Địa chỉ giao hàng',
-            onPress: () => navigation.navigate('Address'),
+            onPress: () => navigation.navigate(NAVIGATE_ADDRESS),
           },
         ]}
       />

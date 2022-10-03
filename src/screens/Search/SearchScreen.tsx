@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text, Image, View, TouchableOpacity, StyleSheet, FlatList, ListRenderItem, ScrollView } from 'react-native';
+import {
+    SafeAreaView,
+    Text,
+    Image,
+    View,
+    TouchableOpacity,
+    StyleSheet,
+    FlatList,
+    ListRenderItem,
+    ScrollView,
+} from 'react-native';
 import { SearchBar } from '../../components/SearchField';
-import { Categories } from '../../assets/Data';
+
 import { useNavigation } from '@react-navigation/native';
 import ListCategories from '../../components/item/ListCategories';
 import TitleSearch from '../../components/item/TitleSearch';
-import InputItem from '../../components/InputItem';
-import TabBar from '../../navigation/TopBar';
-import CategoriesContainer from '../../components/categories/CategoriesContainer';
-
+import { cancel_icon } from '../../assets/images';
 
 const DATA = [
     {
@@ -44,58 +51,63 @@ const DATA2 = [
 ];
 
 const SearchScreen: React.FC = () => {
-    const [search, setSearch] = useState('')
-    const navigation = useNavigation()
+    const [search, setSearch] = useState('');
+    const navigation = useNavigation();
+    const onPressRoute = () => {
+        navigation.navigate('TabBar')
+    }
     return (
-        <SafeAreaView style={{ backgroundColor: '#FFFFFF', flex: 1 }}>
+        <SafeAreaView className="bg-white">
             <ScrollView>
                 <View className={`px-6`}>
                     <View className={`flex-row`}>
-                        <SearchBar placeholder='Tìm kiếm' width={280} />
+                        <SearchBar placeholder="Tìm kiếm" width={280} />
 
                         <View className={`flex self-center ml-6`}>
-                            <TouchableOpacity onPress={() => navigation.goBack()}>
-                                <Image source={require('../../images/cancel.png')} />
+                            <TouchableOpacity onPress={onPressRoute}>
+                                <Image source={cancel_icon} />
                             </TouchableOpacity>
                         </View>
                     </View>
                     <View className={`mt-9`}>
-                        {DATA2.map(item =>
-                            <TouchableOpacity onPress={() => navigation.navigate('SearchResult')}>
+                        {DATA2.map(item => (
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('SearchResult')}>
                                 <TitleSearch id={item.id} title={item.title} key={item.id} />
-                            </TouchableOpacity>)}
-
-                    </View>
-
-                    <View className={`mt-4`}>
-                        <Text className={`text-[#2D2D2D] text-[15px] font-bold`}>Tìm kiếm gần đây</Text>
-                    </View>
-                    <View>
-                        {DATA.map((item, index) => (
-                            index < 3 && <TitleSearch title={item.title} id={item.id} key={item.id} />
+                            </TouchableOpacity>
                         ))}
                     </View>
 
+                    <View className={`mt-4`}>
+                        <Text className={`text-[#2D2D2D] text-[15px] font-bold`}>
+                            Tìm kiếm gần đây
+                        </Text>
+                    </View>
+                    <View>
+                        {DATA.map(
+                            (item, index) =>
+                                index < 3 && (
+                                    <TitleSearch title={item.title} id={item.id} key={item.id} />
+                                ),
+                        )}
+                    </View>
                 </View>
-
-
 
                 <View className={`w-fit h-1.5 bg-[#F9F9F9]`} />
 
                 <View>
                     <View className={`pl-6 mt-4 mb-5`}>
-                        <Text className={`text-[#2D2D2D] text-[15px] font-bold`}>Danh mục hàng</Text>
+                        <Text className={`text-[#2D2D2D] text-[15px] font-bold`}>
+                            Danh mục hàng
+                        </Text>
                     </View>
 
                     <ListCategories />
 
                 </View>
-
-
             </ScrollView>
         </SafeAreaView>
     );
 };
 
 export default SearchScreen;
-

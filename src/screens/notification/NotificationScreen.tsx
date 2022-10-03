@@ -1,8 +1,8 @@
-import {SafeAreaView, Text} from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
 
 const NotificationScreen: React.FC = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView className="flex-1 bg-white">
       <Text>Notification</Text>
     </SafeAreaView>
   );

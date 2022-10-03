@@ -11,12 +11,13 @@ import ShopDescription from './ShopDescription';
 import CategoriesOfShop from './CategoriesOfShop';
 import ProductsOfShop from './ProductsOfShop';
 import { useNavigation } from '@react-navigation/native';
+import BtnFilter from '../../components/Search/BtnFilter';
 
 
 const item = [
-    { id: 1, name: 'Cửa hàng', component: ShopDescription },
-    { id: 2, name: 'Sản phẩm', component: ProductsOfShop },
-    { id: 3, name: 'Danh mục hàng', component: CategoriesOfShop }
+    { id: 1, title: 'Cửa hàng', component: ShopDescription },
+    { id: 2, title: 'Sản phẩm', component: ProductsOfShop },
+    { id: 3, title: 'Danh mục hàng', component: CategoriesOfShop }
 ]
 
 const ShopDetailScreen: React.FC = () => {
@@ -27,7 +28,7 @@ const ShopDetailScreen: React.FC = () => {
     return (
         <SafeAreaView className="bg-white flex-1">
 
-            <ScrollView className={`flex-none`}>
+            <ScrollView View className={`flex-none`}>
                 <View className="flex-row justify-between p-5 absolute z-10 w-full">
                     <GoBackBtn
                         style="py-3 px-6 bg-black-opacity rounded-lg w-10 items-center justify-center"
@@ -54,10 +55,13 @@ const ShopDetailScreen: React.FC = () => {
                     </View>
                 </View>
 
+                <View className={`flex-1`}>
+                    {/* <TopBar title={item} /> */}
+                    <BtnFilter label={item} />
+                </View>
+
             </ScrollView>
-            <View className={`flex-1 h-screen`}>
-                <TopBar title={item} />
-            </View>
+
 
         </SafeAreaView>
     );

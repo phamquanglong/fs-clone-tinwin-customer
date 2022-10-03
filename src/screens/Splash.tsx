@@ -3,6 +3,7 @@ import {colors} from '../assets/colors';
 import LinearGradient from 'react-native-linear-gradient';
 import {useEffect, useState} from 'react';
 import {StackActions, useNavigation} from '@react-navigation/native';
+import {NAVIGATE_ONBOARDING} from '../navigation/navigate';
 
 const Splash: React.FC = () => {
   const [logoOpacity, setLogoOpacity] = useState(new Animated.Value(0));
@@ -16,14 +17,14 @@ const Splash: React.FC = () => {
         useNativeDriver: true,
       }),
     ]).start(() => {
-      navigation.dispatch(StackActions.replace('Onboarding'));
+      navigation.dispatch(StackActions.replace(NAVIGATE_ONBOARDING));
     });
   }, []);
 
   return (
     <SafeAreaView>
       <LinearGradient
-        colors={['#FD7D00', '#FEB336']}
+        colors={[colors.primary, colors.primaryToGradient]}
         start={{x: 0, y: 0.5}}
         end={{x: 1, y: 0.5}}
         locations={[0, 1]}>

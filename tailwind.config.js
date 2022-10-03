@@ -6,9 +6,10 @@ module.exports = {
       borderColor: {
         'Rectanger': 'rgba(0, 0, 0, 0.1)',
       },
-      backgroundColor: {
-        'backgroundTag': 'rgba(252, 131, 45, 0.1)'
-      }
+      width: {
+        'w-500': '500px',
+        'w-750': '750px',
+      },
     },
   },
   plugins: [],
