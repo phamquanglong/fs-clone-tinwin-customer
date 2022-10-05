@@ -18,7 +18,7 @@ interface Props {
 }
 
 const AccountItem: React.FC<Props> = (props: Props) => {
-  const {icon, text, index, length, onPress, textRight} = props;
+  const {icon, text, index, length, textRight, onPress} = props;
 
   return (
     <View>

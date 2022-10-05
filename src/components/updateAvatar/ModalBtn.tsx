@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity} from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 
 interface Props {
   color?: string;
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ModalBtn: React.FC<Props> = (props: Props) => {
-  const {color, text, onPress, textColor} = props;
+  const { color, text, onPress, textColor } = props;
 
   return (
     <TouchableOpacity

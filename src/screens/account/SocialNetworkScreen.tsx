@@ -1,4 +1,4 @@
-import {SafeAreaView} from 'react-native';
+import { SafeAreaView } from 'react-native';
 import AccountContainer from '../../components/account/AccountContainer';
 import HeaderStack from '../../components/HeaderStack';
 

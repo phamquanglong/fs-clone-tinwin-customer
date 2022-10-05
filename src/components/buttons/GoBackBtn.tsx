@@ -11,11 +11,15 @@ interface Props {
 
 const GoBackBtn: React.FC<Props> = (props: Props) => {
   const navigation = useNavigation();
-  const { style, color, size } = props;
+  const { style, color } = props;
+
+  const goBack = () => {
+    navigation.goBack();
+  };
 
   return (
-    <TouchableOpacity className={style} onPress={() => navigation.goBack()}>
-      <FontAwesomeIcon icon={faAngleLeft} color={color} size={size} />
+    <TouchableOpacity className={style} onPress={goBack}>
+      <FontAwesomeIcon icon={faAngleLeft} color={color} size={25} />
     </TouchableOpacity>
   );
 };

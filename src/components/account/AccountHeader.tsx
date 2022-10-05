@@ -1,5 +1,6 @@
 import {Image, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {colors} from '../../assets/colors';
 import CartBtn from '../buttons/CartBtn';
 import SettingsBtn from '../buttons/SettingsBtn';
 
@@ -7,7 +8,7 @@ const AccountHeader: React.FC = () => {
   return (
     <LinearGradient
       className="h-28 p-3"
-      colors={['#FD7D00', '#FEB336']}
+      colors={[colors.primary, colors.primaryToGradient]}
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}
       locations={[0, 1]}>

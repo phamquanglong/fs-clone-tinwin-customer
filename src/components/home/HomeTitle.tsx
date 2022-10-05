@@ -8,7 +8,7 @@ import {
 
 interface Props {
   title: string;
-  icon: ImageSourcePropType;
+  icon?: ImageSourcePropType;
   textBtn?: string;
 }
 
@@ -22,8 +22,8 @@ const HomeTitle: React.FC<Props> = (props: Props) => {
         <Text className="ml-3 font-bold text-lg">{title}</Text>
       </View>
 
-      {textBtn && (
-        <TouchableOpacity className="rounded-lg bg-orange-100 py-1 px-3">
+      {textBtn !== '' && (
+        <TouchableOpacity className="rounded-lg py-1 px-3">
           <Text className="text-orange-primary">{textBtn}</Text>
         </TouchableOpacity>
       )}

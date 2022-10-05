@@ -9,19 +9,23 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import {anotherOrange, black, colorForInput} from '../../constant/const';
 
 const ModalAuthen = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const visible = () => {
+    setModalVisible(true);
+  };
+  const notVisible = () => {
+    setModalVisible(!modalVisible);
+  };
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
+        onRequestClose={notVisible}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Image source={require('../../assets/authen/Warning.png')} />
@@ -30,39 +34,17 @@ const ModalAuthen = () => {
               <Text style={styles.modalText}>Mã OTP không đúng.</Text>
               <Text style={styles.modalText}>Vui lòng nhập lại</Text>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginTop: 32,
-              }}>
-              <View
-                style={{
-                  flex: 1,
-                  height: 1,
-                  backgroundColor: '#0000001F',
-                  minWidth: 320,
-                }}
-              />
-              {/* <View>
-                <Text style={{width: 50, textAlign: 'center'}}>Hello</Text>
-              </View> */}
-              <View
-                style={{flex: 1, height: 1, backgroundColor: '#0000001F'}}
-              />
+            <View style={styles.flexMt}>
+              <View style={styles.viewOk} />
+              <View style={styles.abc} />
             </View>
 
-            <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
+            <TouchableOpacity onPress={notVisible}>
               <Text style={styles.textStyle}>Đồng ý</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
     </View>
   );
 };
@@ -80,7 +62,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -96,14 +78,8 @@ const styles = StyleSheet.create({
     padding: 10,
     elevation: 2,
   },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
   textStyle: {
-    color: '#FC832D',
+    color: anotherOrange,
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 22,
@@ -125,6 +101,18 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     marginTop: 8,
+  },
+  viewOk: {
+    flex: 1,
+    height: 1,
+    backgroundColor: colorForInput,
+    minWidth: 320,
+  },
+  abc: {flex: 1, height: 1, backgroundColor: colorForInput},
+  flexMt: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 32,
   },
 });
 

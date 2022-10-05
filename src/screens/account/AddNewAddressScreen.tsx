@@ -10,6 +10,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import tw from 'tailwind-react-native-classnames';
+import {colors} from '../../assets/colors';
 import AccountItem from '../../components/account/AccountItem';
 import BtnBorder from '../../components/BtnBorder';
 import BtnPrimary from '../../components/BtnPrimary';
@@ -49,12 +51,22 @@ const AddNewAddressScreen: React.FC = () => {
   ];
 
   const {isChoose, choose} = useChoose(addressTypes);
+  const renderItem = ({item}) => (
+    <TouchableOpacity
+      onPress={() => isChoose(item)}
+      className={`flex-row items-center border-2 border-${
+        choose(item) ? 'orange-primary' : 'gray-100'
+      } flex-1 py-2 px-5 rounded-lg ${choose(item) && 'bg-orange-100'}`}>
+      <FontAwesomeIcon icon={item.icon} color={colors.primary} />
+      <Text className="ml-2 text-lg">{item.text}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView className="bg-white h-full">
       <HeaderStack text={title} isGoback={true} />
 
-      <ScrollView>
+      <ScrollView className="mb-3">
         <TitleItem title="Liên hệ" />
 
         <View className="mx-5">
@@ -89,25 +101,10 @@ const AddNewAddressScreen: React.FC = () => {
           <Text className="text-black font-bold">Loại địa chỉ</Text>
         </View>
         <FlatList
-          contentContainerStyle={{
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            marginTop: 20,
-          }}
+          contentContainerStyle={tw`flex-row justify-evenly mt-5`}
           data={addressTypes}
           keyExtractor={key => key.id}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              onPress={() => isChoose(item)}
-              className={`flex-row items-center border-2 border-${
-                choose(item) ? 'orange-primary' : 'gray-100'
-              } flex-1 py-2 px-5 rounded-lg ${
-                choose(item) && 'bg-orange-100'
-              }`}>
-              <FontAwesomeIcon icon={item.icon} color="#FD7D00" />
-              <Text className="ml-2 text-lg">{item.text}</Text>
-            </TouchableOpacity>
-          )}
+          renderItem={renderItem}
         />
       </ScrollView>
 

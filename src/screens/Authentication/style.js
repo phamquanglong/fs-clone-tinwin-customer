@@ -1,3 +1,5 @@
+import {black, grey} from '../../constant/const';
+
 const {StyleSheet} = require('react-native');
 
 export const style = StyleSheet.create({
@@ -21,6 +23,7 @@ export const style = StyleSheet.create({
     fontWeight: '700',
     fontSize: 30,
     lineHeight: 35,
+    color: black,
   },
   textPrimary: {
     color: '#FC832D',
@@ -46,7 +49,8 @@ export const style = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderStyle: 'solid',
-    marginBottom: 30,
+    // marginBottom: 30,
+    color: grey,
   },
   textSMS: {
     fontSize: 12,
@@ -147,6 +151,7 @@ export const styleRegister = StyleSheet.create({
     fontWeight: '700',
     fontSize: 30,
     lineHeight: 35,
+    color: black,
   },
   textPrimary: {
     color: '#FC832D',
@@ -173,6 +178,7 @@ export const styleRegister = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
     marginBottom: 30,
+    color: grey,
   },
   textSMS: {
     fontSize: 12,

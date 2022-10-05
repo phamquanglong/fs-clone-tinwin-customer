@@ -1,14 +1,9 @@
-import {
-  faApple,
-  faFacebook,
-  faGooglePlus,
-} from '@fortawesome/free-brands-svg-icons';
 import {faEyeSlash} from '@fortawesome/free-regular-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {
-  Image,
+  Keyboard,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -17,29 +12,40 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import ModalAuthen from './ModalAuthen';
+import {
+  anotherOrange,
+  colorForInput,
+  darkerGrey,
+  grey,
+  lightGrey,
+  moreLightGrey,
+  orangeDark,
+  orangeLight,
+  red,
+  white,
+} from '../../constant/const';
 
 const FormForgotPassword: React.FC = () => {
   const navigation = useNavigation();
-  const [userName, setUserName] = useState<string>('');
   const options = {
     title: 'Đặt lại mật khẩu',
     headerTintColor: 'black',
     headerStyle: {
-      backgroundColor: '#f2f2f2',
+      backgroundColor: moreLightGrey,
     },
     headerShadowVisible: false, // applied here
   };
   useEffect(() => {
     navigation.setOptions(options);
+    Keyboard.dismiss();
   }, []);
 
   return (
     <SafeAreaView style={style.container}>
       <View style={style.loginView}>
-        <View style={{marginBottom: 20}}>
+        <View style={style.marginBot}>
           <Text style={style.textDescription}>
-            Mật khẩu mới <Text style={{color: '#FF3B30'}}>*</Text>
+            Mật khẩu mới <Text style={style.redText}>*</Text>
           </Text>
           <TextInput
             style={style.input}
@@ -48,26 +54,20 @@ const FormForgotPassword: React.FC = () => {
             // value={password}
             // secureTextEntry={isPasswordSecure}
             // onChange={value => setPassword(value)}
+            placeholderTextColor={lightGrey}
           />
-          <View
-            style={{
-              position: 'absolute',
-              right: 20,
-              top: 40,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+          <View style={style.eye}>
             <TouchableOpacity
             // onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
             // onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}
             >
-              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color={lightGrey} />
             </TouchableOpacity>
           </View>
         </View>
         <View>
           <Text style={style.textDescription}>
-            Nhập lại mật khẩu mới <Text style={{color: '#FF3B30'}}>*</Text>
+            Nhập lại mật khẩu mới <Text style={style.redText}>*</Text>
           </Text>
           <TextInput
             style={style.input}
@@ -76,38 +76,19 @@ const FormForgotPassword: React.FC = () => {
             // value={password}
             // secureTextEntry={isPasswordSecure}
             // onChange={value => setPassword(value)}
+            placeholderTextColor={lightGrey}
           />
-          <View
-            style={{
-              position: 'absolute',
-              right: 20,
-              top: 40,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+          <View style={style.eye}>
             <TouchableOpacity
             // onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
             // onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}
             >
-              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color={lightGrey} />
             </TouchableOpacity>
           </View>
         </View>
-        <View
-          style={{
-            width: 299,
-            alignSelf: 'center',
-            marginTop: 10,
-            marginBottom: 40,
-          }}>
-          <Text
-            style={{
-              color: '#636366',
-              fontWeight: '500',
-              fontSize: 14,
-              lineHeight: 18,
-              textAlign: 'center',
-            }}>
+        <View style={style.boxWarning}>
+          <Text style={style.textWarning}>
             Mật khẩu phải dài từ 8-16 kí tự (Bao gồm tối thiểu 1 chữ viết hoa và
             1 kí tự đặc biệt)
           </Text>
@@ -115,28 +96,19 @@ const FormForgotPassword: React.FC = () => {
       </View>
       <View>
         <LinearGradient
-          className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
+          className={`rounded-md`}
+          colors={[orangeLight, orangeDark]}
           start={{x: 0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}
-          style={{alignItems: 'center', height: 50}}>
+          style={style.btnNext}>
           <TouchableOpacity
             className="p-3"
             // onPress={() =>
             //   navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'})
             // }
           >
-            <Text
-              style={{
-                color: '#FFF',
-                alignSelf: 'center',
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 22,
-              }}>
-              Tiếp theo
-            </Text>
+            <Text style={style.textNext}>Tiếp theo</Text>
           </TouchableOpacity>
         </LinearGradient>
         {/* <ModalAuthen /> */}
@@ -166,7 +138,7 @@ export const style = StyleSheet.create({
     lineHeight: 35,
   },
   textPrimary: {
-    color: '#FC832D',
+    color: anotherOrange,
   },
   loginView: {
     marginTop: 40,
@@ -184,18 +156,19 @@ export const style = StyleSheet.create({
     flex: 1,
     // alignItems: 'stretch',
     minHeight: 50,
-    borderColor: '#0000001F 12%',
+    borderColor: colorForInput,
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
     borderStyle: 'solid',
     marginBottom: 30,
+    color: grey,
   },
   textSMS: {
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
     marginTop: 10,
     // marginRight: 12,
   },
@@ -203,7 +176,37 @@ export const style = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
+  },
+  marginBot: {marginBottom: 20},
+  redText: {color: red},
+  eye: {
+    position: 'absolute',
+    right: 20,
+    top: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  boxWarning: {
+    width: 299,
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: 40,
+  },
+  textWarning: {
+    color: darkerGrey,
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 18,
+    textAlign: 'center',
+  },
+  btnNext: {alignItems: 'center', height: 50},
+  textNext: {
+    color: white,
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
   },
 });
 export default FormForgotPassword;

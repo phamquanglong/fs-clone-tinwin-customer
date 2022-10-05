@@ -1,6 +1,6 @@
 import {all, fork, takeLatest} from 'redux-saga/effects';
-import {GET_USER} from './actions';
 import * as actions from './actions';
+import { GET_USER } from './constants';
 
 function* fetchData() {
   takeLatest(GET_USER, function* (action) {

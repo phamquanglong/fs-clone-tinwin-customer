@@ -2,6 +2,7 @@ import { faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { Text, View } from 'react-native';
 import { Rating } from 'react-native-ratings';
+import tw from 'tailwind-react-native-classnames';
 import IconBtnOnly from '../buttons/IconBtnOnly';
 
 interface Props {
@@ -17,10 +18,7 @@ const ProductInfoContainer: React.FC<Props> = (props: Props) => {
         <Text numberOfLines={2}>Tên sản phẩm</Text>
         <View className="flex-row items-center my-3">
           <Rating
-            style={{
-              alignItems: 'flex-start',
-              marginEnd: 5,
-            }}
+            style={tw`items-start mr-2`}
             type="star"
             startingValue={4.5}
             imageSize={10}

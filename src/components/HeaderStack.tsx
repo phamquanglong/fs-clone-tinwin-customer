@@ -7,17 +7,21 @@ interface Props {
   text: string;
   textBtnRight?: string;
   isGoback?: boolean;
+  onPress?: () => void;
 }
 
 const HeaderStack: React.FC<Props> = (props: Props) => {
-  const {text, textBtnRight, isGoback} = props;
+  const {text, textBtnRight, isGoback, onPress} = props;
 
   const navigation = useNavigation();
+  const goBack = () => {
+    navigation.goBack();
+  };
 
   return (
     <View className="flex-row p-5 items-center justify-between">
       {isGoback ? (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={goBack}>
           <FontAwesomeIcon icon={faAngleLeft} size={25} />
         </TouchableOpacity>
       ) : (
@@ -26,7 +30,7 @@ const HeaderStack: React.FC<Props> = (props: Props) => {
       <Text className="text-xl font-bold text-black">{text}</Text>
 
       {textBtnRight !== undefined ? (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
           <Text className="text-orange-primary">{textBtnRight}</Text>
         </TouchableOpacity>
       ) : (

@@ -11,6 +11,18 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {
+  anotherOrange,
+  colorForInput,
+  darkerGrey,
+  grey,
+  lightGrey,
+  moreLightGrey,
+  orangeDark,
+  orangeLight,
+  red,
+  white,
+} from '../../constant/const';
 
 const FormRegister: React.FC = () => {
   const navigation = useNavigation();
@@ -23,29 +35,47 @@ const FormRegister: React.FC = () => {
     title: 'Đặt lại mật khẩu',
     headerTintColor: 'black',
     headerStyle: {
-      backgroundColor: '#f2f2f2',
+      backgroundColor: moreLightGrey,
     },
     headerShadowVisible: false, // applied here
   };
   useEffect(() => {
     navigation.setOptions(options);
   }, []);
+  const setUser = (text: string) => {
+    setUserName(text);
+  };
+  const setPass = (text: string) => {
+    setPassword(text);
+  };
+  const setPassSecu = () => {
+    setIsPasswordSecure(!isPasswordSecure);
+  };
+  const setCon = (value: any) => {
+    setComfirm(value);
+  };
+  const setPasswordSecureComfirm = () => {
+    setIsPasswordSecureComfirm(!isPasswordSecureComfirm);
+  };
+  const navigateAuthen = () => {
+    navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'});
+  };
 
   return (
     <SafeAreaView style={style.container}>
       <View style={style.loginView}>
-        <View style={{marginBottom: 20}}>
+        <View style={style.mb20}>
           <Text style={style.textDescription}>Tên Hiển Thị</Text>
           <TextInput
             style={style.input}
             value={userName}
             placeholder="Nhập tên hiển thị"
-            onChange={text => setUserName(text)}
+            onChange={setUser}
           />
         </View>
-        <View style={{marginBottom: 20}}>
+        <View style={style.mb20}>
           <Text style={style.textDescription}>
-            Mật khẩu <Text style={{color: '#FF3B30'}}>*</Text>
+            Mật khẩu <Text style={style.redText}>*</Text>
           </Text>
           <TextInput
             style={style.input}
@@ -53,26 +83,17 @@ const FormRegister: React.FC = () => {
             autoCapitalize="none"
             value={password}
             secureTextEntry={isPasswordSecure}
-            onChange={value => setPassword(value)}
+            onChange={setPass}
           />
-          <View
-            style={{
-              position: 'absolute',
-              right: 20,
-              top: 40,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <TouchableOpacity
-              onPressIn={() => setIsPasswordSecure(!isPasswordSecure)}
-              onPressOut={() => setIsPasswordSecure(!isPasswordSecure)}>
-              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+          <View style={style.eye}>
+            <TouchableOpacity onPressIn={setPassSecu} onPressOut={setPassSecu}>
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color={lightGrey} />
             </TouchableOpacity>
           </View>
         </View>
         <View>
           <Text style={style.textDescription}>
-            Nhập lại mật khẩu <Text style={{color: '#FF3B30'}}>*</Text>
+            Nhập lại mật khẩu <Text style={style.redText}>*</Text>
           </Text>
           <TextInput
             style={style.input}
@@ -80,42 +101,18 @@ const FormRegister: React.FC = () => {
             autoCapitalize="none"
             value={comfirm}
             secureTextEntry={isPasswordSecureComfirm}
-            onChange={value => setComfirm(value)}
+            onChange={setCon}
           />
-          <View
-            style={{
-              position: 'absolute',
-              right: 20,
-              top: 40,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+          <View style={style.eyeForgot}>
             <TouchableOpacity
-              onPressIn={() =>
-                setIsPasswordSecureComfirm(!isPasswordSecureComfirm)
-              }
-              onPressOut={() =>
-                setIsPasswordSecureComfirm(!isPasswordSecureComfirm)
-              }>
-              <FontAwesomeIcon icon={faEyeSlash} size={20} color="#AEAEB2" />
+              onPressIn={setPasswordSecureComfirm}
+              onPressOut={setPasswordSecureComfirm}>
+              <FontAwesomeIcon icon={faEyeSlash} size={20} color={lightGrey} />
             </TouchableOpacity>
           </View>
         </View>
-        <View
-          style={{
-            width: 299,
-            alignSelf: 'center',
-            marginTop: 10,
-            marginBottom: 40,
-          }}>
-          <Text
-            style={{
-              color: '#636366',
-              fontWeight: '500',
-              fontSize: 14,
-              lineHeight: 18,
-              textAlign: 'center',
-            }}>
+        <View style={style.boxWarning}>
+          <Text style={style.textWarning}>
             Mật khẩu phải dài từ 8-16 kí tự (Bao gồm tối thiểu 1 chữ viết hoa và
             1 kí tự đặc biệt)
           </Text>
@@ -124,32 +121,20 @@ const FormRegister: React.FC = () => {
       <View>
         <LinearGradient
           className={`${style} rounded-md`}
-          colors={['#FD7D00', '#FEB336']}
+          colors={[orangeLight, orangeDark]}
           start={{x: 0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           locations={[0, 1]}
-          style={{alignItems: 'center', height: 50}}>
-          <TouchableOpacity
-            className="p-3"
-            onPress={() =>
-              navigation.navigate('OTPAuthen', {title: 'Nhập mã xác minh'})
-            }>
-            <Text
-              style={{
-                color: '#FFF',
-                alignSelf: 'center',
-                fontSize: 16,
-                fontWeight: '600',
-                lineHeight: 22,
-              }}>
-              Tiếp theo
-            </Text>
+          style={style.btnNext}>
+          <TouchableOpacity className="p-3" onPress={navigateAuthen}>
+            <Text style={style.textNext}>Tiếp theo</Text>
           </TouchableOpacity>
         </LinearGradient>
       </View>
     </SafeAreaView>
   );
 };
+
 export const style = StyleSheet.create({
   image: {
     width: 92,
@@ -172,7 +157,7 @@ export const style = StyleSheet.create({
     lineHeight: 35,
   },
   textPrimary: {
-    color: '#FC832D',
+    color: anotherOrange,
   },
   loginView: {
     marginTop: 40,
@@ -190,18 +175,19 @@ export const style = StyleSheet.create({
     flex: 1,
     // alignItems: 'stretch',
     minHeight: 50,
-    borderColor: '#0000001F 12%',
+    borderColor: colorForInput,
     borderRadius: 10,
     padding: 10,
     borderWidth: 1,
     borderStyle: 'solid',
     marginBottom: 30,
+    color: grey,
   },
   textSMS: {
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
     marginTop: 10,
     // marginRight: 12,
   },
@@ -209,7 +195,45 @@ export const style = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 22,
-    color: '#FC832D',
+    color: anotherOrange,
   },
+  eye: {
+    position: 'absolute',
+    right: 20,
+    top: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  eyeForgot: {
+    position: 'absolute',
+    right: 20,
+    top: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  boxWarning: {
+    width: 299,
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: 40,
+  },
+  textWarning: {
+    color: darkerGrey,
+    fontWeight: '500',
+    fontSize: 14,
+    lineHeight: 18,
+    textAlign: 'center',
+  },
+  btnNext: {alignItems: 'center', height: 50},
+  textNext: {
+    color: white,
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    lineHeight: 22,
+  },
+  mb20: {marginBottom: 20},
+  redText: {color: red},
+  mb20: {marginBottom: 20},
 });
 export default FormRegister;

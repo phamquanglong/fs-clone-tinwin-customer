@@ -9,6 +9,17 @@ interface Props {
 const AccountContainer: React.FC<Props> = (props: Props) => {
   const {title, items} = props;
 
+  const renderItem = ({item, index}) => (
+    <AccountItem
+      onPress={item.onPress}
+      icon={item.icon}
+      text={item.text}
+      index={index}
+      length={items.length}
+      textRight={item.textRight}
+    />
+  );
+
   return (
     <View>
       {title !== undefined && (
@@ -19,16 +30,7 @@ const AccountContainer: React.FC<Props> = (props: Props) => {
       <FlatList
         data={items}
         keyExtractor={key => key.text}
-        renderItem={({item, index}) => (
-          <AccountItem
-            onPress={item.onPress}
-            icon={item.icon}
-            text={item.text}
-            index={index}
-            length={items.length}
-            textRight={item.textRight}
-          />
-        )}
+        renderItem={renderItem}
       />
     </View>
   );

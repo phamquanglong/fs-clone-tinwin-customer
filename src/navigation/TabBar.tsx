@@ -5,9 +5,11 @@ import {
   faStore,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Platform} from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Platform, SafeAreaView } from 'react-native';
+import { colors } from '../assets/colors';
+import NotificationModal from '../components/cart/NotificationModal';
 import AccountNavigator from '../screens/account/AccountNavigator';
 import CategoriesScreen from '../screens/categories/CategoriesScreen';
 import HomeScreen from '../screens/home/HomeScreen';
@@ -17,7 +19,7 @@ const TabBar: React.FC = () => {
   const Tab = createBottomTabNavigator();
 
   const screenOptions = ({route}) => ({
-    headerShown: false,
+    // headerShown: false,
     tabBarIcon: ({focused, color, size}) => {
       return (
         <FontAwesomeIcon
@@ -25,17 +27,17 @@ const TabBar: React.FC = () => {
             route.name === 'Trang chủ'
               ? faHome
               : route.name === 'Danh mục'
-              ? faStore
-              : route.name === 'Thông báo'
-              ? faBell
-              : faUser
+                ? faStore
+                : route.name === 'Thông báo'
+                  ? faBell
+                  : faUser
           }
           color={color}
           size={20}
         />
       );
     },
-    tabBarActiveTintColor: '#FD7D00',
+    tabBarActiveTintColor: colors.primary,
     tabBarStyle: {
       height: Platform.OS === 'ios' ? 100 : 70,
       paddingTop: 10,
@@ -53,7 +55,14 @@ const TabBar: React.FC = () => {
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Trang chủ" component={HomeScreen} />
       <Tab.Screen name="Danh mục" component={CategoriesScreen} />
-      <Tab.Screen name="Thông báo" component={NotificationScreen} />
+      <Tab.Screen
+        name="Thông báo"
+        component={NotificationScreen}
+        options={{
+          headerShadowVisible: false,
+          headerBackTitleVisible: false,
+        }}
+      />
       <Tab.Screen name="Tôi" component={AccountNavigator} />
     </Tab.Navigator>
   );

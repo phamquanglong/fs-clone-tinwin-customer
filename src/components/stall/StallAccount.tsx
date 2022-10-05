@@ -1,5 +1,6 @@
 import {Image, Text, View} from 'react-native';
 import {Rating} from 'react-native-ratings';
+import tw from 'tailwind-react-native-classnames';
 
 interface Props {
   item?: object;
@@ -21,10 +22,7 @@ const StallAccount: React.FC<Props> = (props: Props) => {
         </Text>
         <View className="flex-row items-center">
           <Rating
-            style={{
-              alignItems: 'flex-start',
-              marginEnd: 5,
-            }}
+            style={tw`items-start mr-2`}
             type="star"
             startingValue={4.5}
             imageSize={10}

@@ -10,9 +10,8 @@ import {
 } from 'react-native';
 import HomeTitle from '../home/HomeTitle';
 import StallCard from '../home/StallCard';
-import CategoryCard from './CategoryCard';
 import { useNavigation } from '@react-navigation/native';
-
+import CategoryCard from './CategoryCard';
 
 
 interface Props {
@@ -30,12 +29,29 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
   const [isEnd, setIsEnd] = useState(false);
   const navigation = useNavigation()
 
+  const end = () => {
+    setIsEnd(false);
+  };
+
+  const start = () => {
+    setIsEnd(true);
+  };
+
+  const renderItem = ({ item }) =>
+    title === 'Ngành hàng' ? (
+      <CategoryCard image={item.image} text={item.name} />
+    ) : (
+      <StallCard image={item.image} text={item.name} />
+    );
+
+
+
   return (
     <View>
       <HomeTitle title={title} icon={icon} textBtn={textBtn} />
       <FlatList
-        onScrollBeginDrag={() => setIsEnd(false)}
-        onEndReached={() => setIsEnd(true)}
+        onScrollBeginDrag={end}
+        onEndReached={start}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={flatlistStyle}
         columnWrapperStyle={
@@ -47,13 +63,7 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
         horizontal={flatlistStyle.num !== undefined ? false : true}
         data={data}
         keyExtractor={key => key.id}
-        renderItem={({ item }) =>
-          title === 'Ngành hàng' ? (
-            <CategoryCard image={item.image} text={item.name} style={style} />
-          ) : (
-            <StallCard id={item.id} image={item.image} text={item.name} onPress={() => navigation.navigate('ShopDetail', { id: item.id })} />
-          )
-        }
+        renderItem={renderItem}
       />
       {flatlistStyle.num === undefined ? (
         <View className="bg-gray-200 w-8 h-1 flex-row rounded-full my-5 self-center">
