@@ -1,7 +1,5 @@
 import {faClose} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import CheckBox from '@react-native-community/checkbox';
-import {useState} from 'react';
 import {Modal, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import {RadioButton} from 'react-native-paper';
 import {colors} from '../../assets/colors';
@@ -15,6 +13,7 @@ interface Props {
 
 const GenderModal: React.FC<Props> = (props: Props) => {
   const {modalVisible, setModalVisible, value, setValue} = props;
+  console.log(props);
 
   const hideModal = () => {
     setModalVisible(false);
@@ -45,11 +44,11 @@ const GenderModal: React.FC<Props> = (props: Props) => {
             onValueChange={newValue => onChangeText(newValue)}
             value={value}>
             <View className="flex-row items-center">
-              <RadioButton value="Nam" color={colors.primary} />
+              <RadioButton.Android value="Nam" color={colors.primary} />
               <Text>Nam</Text>
             </View>
             <View className="flex-row items-center">
-              <RadioButton value="Nữ" color={colors.primary} />
+              <RadioButton.Android value="Nữ" color={colors.primary} />
               <Text>Nữ</Text>
             </View>
           </RadioButton.Group>

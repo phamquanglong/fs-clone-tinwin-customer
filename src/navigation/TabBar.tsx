@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Platform, SafeAreaView} from 'react-native';
+import {Platform, SafeAreaView, View} from 'react-native';
 import {colors} from '../assets/colors';
 import NotificationModal from '../components/cart/NotificationModal';
 import AccountNavigator from '../screens/account/AccountNavigator';
@@ -52,7 +52,7 @@ const TabBar: React.FC = () => {
   });
 
   return (
-    <SafeAreaView className="flex-1">
+    <View className="flex-1">
       <Tab.Navigator screenOptions={screenOptions}>
         <Tab.Screen name="Trang chủ" component={HomeScreen} />
         <Tab.Screen name="Danh mục" component={CategoriesScreen} />
@@ -61,7 +61,7 @@ const TabBar: React.FC = () => {
       </Tab.Navigator>
 
       <NotificationModal />
-    </SafeAreaView>
+    </View>
   );
 };
 
