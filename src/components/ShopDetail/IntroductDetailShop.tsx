@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { Text, View, Image } from 'react-native';
-import { Rating } from 'react-native-ratings';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
 

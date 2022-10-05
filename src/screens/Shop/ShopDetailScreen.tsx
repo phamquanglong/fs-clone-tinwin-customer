@@ -5,8 +5,6 @@ import SearchBtnHome from '../../components/buttons/SearchBtnHome';
 import GoBackBtn from '../../components/buttons/GoBackBtn';
 import FilterBtn from '../../components/buttons/FilterBtn';
 import IntroductDetailShop from '../../components/ShopDetail/IntroductDetailShop';
-import { panelImage } from '../../assets/images';
-import TopBar from '../../navigation/TopBar';
 import ShopDescription from './ShopDescription';
 import CategoriesOfShop from './CategoriesOfShop';
 import ProductsOfShop from './ProductsOfShop';
@@ -35,7 +33,7 @@ const ShopDetailScreen: React.FC = () => {
                         style="py-3 px-6 bg-black-opacity rounded-lg w-10 items-center justify-center"
                         color={white}
                     />
-                    <SearchBtnHome placeholder='Tìm kiếm' style='text-white' color='white' onPress={() => navigation.navigate('Search')} />
+                    <SearchBtnHome placeholder='Tìm kiếm' style='text-white' color='white' />
                     <View className="flex-row">
                         <FilterBtn color="white" />
                         <CartBtn

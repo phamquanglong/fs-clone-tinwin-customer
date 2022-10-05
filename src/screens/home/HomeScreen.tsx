@@ -73,15 +73,13 @@ export const data = [
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
-  const onPressRoute = () => {
-    navigation.navigate(NAVIGATE_SEARCH_SCREEN)
-  }
+
   return (
 
     <SafeAreaView className="bg-white h-full">
       <HomeHeader />
       <View className="flex-row mx-3 mb-3">
-        <SearchBtnHome onPress={onPressRoute} />
+        <SearchBtnHome />
         <CartBtn
           color={colors.primary}
           style="border border-gray-200 justify-center px-3 ml-3 rounded-lg"

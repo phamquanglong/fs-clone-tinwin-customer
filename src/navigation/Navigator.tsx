@@ -10,7 +10,7 @@ import RatingScreen from '../screens/ProductDetail/RatingScreen';
 import SearchScreen from '../screens/Search/SearchScreen';
 import SearchResultScreen from '../screens/Search/SearchResultScreen';
 import FilterScreen from '../screens/categories/FilterScreen';
-import CartNavigator from '../screens/cart/CartNavigator';
+import CartNavigator from '../screens/Cart/CartNavigator';
 import UpdateInfoScreen from '../screens/account/UpdateInfoScreen';
 import ShopDetailScreen from '../screens/Shop/ShopDetailScreen';
 import OrderSuccess from '../screens/Payment/OrderSuccess';
@@ -70,7 +70,7 @@ const Navigator: React.FC = () => {
           component={FormForgotPassword}
           options={options}
         />
-        <Stack.Screen name="TabBar" component={TabBar} options={options} />
+        <Stack.Screen name="TabBar" component={TabBar} options={screenOptions} />
         <Stack.Screen
           name="OrderSuccess"
           component={OrderSuccess}
@@ -136,6 +136,21 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name='DetailCategories'
           component={DetailCategoriesScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Filter"
+          component={FilterScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="CartNavigator"
+          component={CartNavigator}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="UpdateInfo"
+          component={UpdateInfoScreen}
           options={screenOptions}
         />
 
