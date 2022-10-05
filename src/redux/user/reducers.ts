@@ -21,7 +21,7 @@ const userReducer = (state = initState, action: any) => {
     case GET_USER:
       return state;
     case UPDATE_INFO_USER:
-      console.log('a')
+      // console.log('a')
       return {...state, user: action.payload}
     default:
       return state;

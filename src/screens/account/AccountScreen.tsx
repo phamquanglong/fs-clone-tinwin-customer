@@ -12,6 +12,7 @@ import AccountHeader from '../../components/account/AccountHeader';
 import AccountInfo from '../../components/account/AccountInfo';
 import {
   NAVIGATE_ADDRESS,
+  NAVIGATE_ORDER,
   NAVIGATE_SOCIAL_NETWORK,
 } from '../../navigation/navigate';
 
@@ -30,6 +31,7 @@ const AccountScreen: React.FC = () => {
           {
             icon: require('../../assets/icons/account/basket-search2.png'),
             text: 'Lịch sử mua hàng',
+            onPress: () => navigation.navigate(NAVIGATE_ORDER),
           },
         ]}
       />

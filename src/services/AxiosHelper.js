@@ -30,7 +30,7 @@ export const get = (path, params) => {
     })
     .catch(err => {
       // handleErr(err)
-      console.log(err);
+      // console.log(err);
     });
 };
 
@@ -72,7 +72,7 @@ export const deleteMethod = (path, id) => {
     })
     .catch(err => {
       // handleErr(err)
-      console.log(err);
+      // console.log(err);
     });
 };
 

@@ -18,9 +18,9 @@ import NotificationScreen from '../screens/notification/NotificationScreen';
 const TabBar: React.FC = () => {
   const Tab = createBottomTabNavigator();
 
-  const screenOptions = ({ route }) => ({
-    headerShown: false,
-    tabBarIcon: ({ focused, color, size }) => {
+  const screenOptions = ({route}) => ({
+    // headerShown: false,
+    tabBarIcon: ({focused, color, size}) => {
       return (
         <FontAwesomeIcon
           icon={
@@ -52,16 +52,19 @@ const TabBar: React.FC = () => {
   });
 
   return (
-    <SafeAreaView className="flex-1">
-      <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen name="Trang chủ" component={HomeScreen} />
-        <Tab.Screen name="Danh mục" component={CategoriesScreen} />
-        <Tab.Screen name="Thông báo" component={NotificationScreen} />
-        <Tab.Screen name="Tôi" component={AccountNavigator} />
-      </Tab.Navigator>
-
-      <NotificationModal />
-    </SafeAreaView>
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen name="Trang chủ" component={HomeScreen} />
+      <Tab.Screen name="Danh mục" component={CategoriesScreen} />
+      <Tab.Screen
+        name="Thông báo"
+        component={NotificationScreen}
+        options={{
+          headerShadowVisible: false,
+          headerBackTitleVisible: false,
+        }}
+      />
+      <Tab.Screen name="Tôi" component={AccountNavigator} />
+    </Tab.Navigator>
   );
 };
 

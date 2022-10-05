@@ -12,6 +12,7 @@ import CategoriesOfShop from './CategoriesOfShop';
 import ProductsOfShop from './ProductsOfShop';
 import { useNavigation } from '@react-navigation/native';
 import BtnFilter from '../../components/Search/BtnFilter';
+import { white } from '../../constant/const';
 
 
 const item = [
@@ -32,11 +33,11 @@ const ShopDetailScreen: React.FC = () => {
                 <View className="flex-row justify-between p-5 absolute z-10 w-full">
                     <GoBackBtn
                         style="py-3 px-6 bg-black-opacity rounded-lg w-10 items-center justify-center"
-                        color="white"
+                        color={white}
                     />
                     <SearchBtnHome placeholder='Tìm kiếm' style='text-white' color='white' onPress={() => navigation.navigate('Search')} />
                     <View className="flex-row">
-                        <FilterBtn color="white" style='text-white' />
+                        <FilterBtn color="white" />
                         <CartBtn
                             color="white"
                             style="border border-white justify-center px-3 ml-3 rounded-lg"
