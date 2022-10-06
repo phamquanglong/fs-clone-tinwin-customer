@@ -14,29 +14,10 @@ interface Props {
     label: object[];
 }
 
-const Item = (item: object, status: string, onPress?: () => void) => (
-    <View >
-        <TouchableOpacity
-            className={`w-28 items-center border-b-2 ${status === item.title ? 'border-b-[#FC832D]' : 'border-b-[#48484A]'
-                } `}
-            onPress={onPress}>
-            <Text
-                className={`mb-3 ${status === item.title ? 'text-[#FC832D]' : 'text-[#48484A]'
-                    }`}>
-                {item.title}
-            </Text>
-        </TouchableOpacity>
-
-    </View>
-)
 
 const BtnFilter: React.FC<Props> = props => {
     const { label } = props;
     const [status, setStatus] = useState(label[0].title);
-
-    const setStatusFilter = (item: object) => {
-        setStatus(item.title);
-    };
 
     const renderItem = ({ item }) => (
         <View >
@@ -51,7 +32,7 @@ const BtnFilter: React.FC<Props> = props => {
                 </Text>
             </TouchableOpacity>
 
-        </View>
+        </View >
 
     )
 
