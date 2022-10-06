@@ -11,6 +11,7 @@ import ProductsOfShop from './ProductsOfShop';
 import { useNavigation } from '@react-navigation/native';
 import BtnFilter from '../../components/Search/BtnFilter';
 import { white } from '../../constant/const';
+import { avatar_img, shop_img } from '../../assets/images';
 
 
 const item = [
@@ -33,22 +34,22 @@ const ShopDetailScreen: React.FC = () => {
                         style="py-3 px-6 bg-black-opacity rounded-lg w-10 items-center justify-center"
                         color={white}
                     />
-                    <SearchBtnHome placeholder='Tìm kiếm' style='text-white' color='white' />
+                    <SearchBtnHome placeholder='Tìm kiếm' style='text-white' color={white} />
                     <View className="flex-row">
-                        <FilterBtn color="white" />
+                        <FilterBtn color={white} />
                         <CartBtn
-                            color="white"
+                            color={white}
                             style="border border-white justify-center px-3 ml-3 rounded-lg"
                         />
                     </View>
                 </View>
 
                 <Image
-                    source={require('../../images/shop.png')}
+                    source={shop_img}
                     className="w-full h-48 bg-blue-400"
                 />
                 <View className=" p-5 absolute top-20 flex-row">
-                    <Image source={require('../../images/avatar.png')} />
+                    <Image source={avatar_img} />
                     <View className={`ml-5`}>
                         <IntroductDetailShop title='Gian hàng An An' value='1234k' rating={4.5} />
                     </View>

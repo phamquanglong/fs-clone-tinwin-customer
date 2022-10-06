@@ -10,6 +10,11 @@ interface Props {
 
 const ShopDetailContainer: React.FC<Props> = (props) => {
     const { data } = props
+    const renderItem = ({ item }) => (
+        <InfoDetailShop
+            title={item.title}
+            value={item.value} />
+    )
 
     return (
         <View>
@@ -17,11 +22,7 @@ const ShopDetailContainer: React.FC<Props> = (props) => {
             <View>
                 <FlatList
                     data={data}
-                    renderItem={({ item }) => (
-                        <InfoDetailShop
-                            title={item.title}
-                            value={item.value} />
-                    )}
+                    renderItem={renderItem}
                     keyExtractor={item => item.id}
                 />
             </View>

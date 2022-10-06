@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Text, Image, View, TouchableOpacity, Animated, FlatList, ListRenderItem, ScrollView } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { useNavigation } from '@react-navigation/native';
 import FilterBtn from '../../components/buttons/FilterBtn';
 import ProductsContainer from '../../components/product/ProductsContainer';
 import { data } from '../../Data/Data';
@@ -17,10 +14,7 @@ const sortLabel = [
 ]
 
 const DetailCategoriesScreen: React.FC = () => {
-    const navigation = useNavigation()
-    const onPressToSearch = () => {
-        navigation.navigate('Search')
-    }
+
 
     return (
         <SafeAreaView className={`bg-white flex-1`}>

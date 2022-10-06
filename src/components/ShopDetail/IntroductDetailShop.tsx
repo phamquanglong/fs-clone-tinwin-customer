@@ -5,6 +5,7 @@ import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
 
 import { faStarHalfStroke } from '@fortawesome/free-regular-svg-icons';
 import Stars from 'react-native-stars';
+import { colors } from '../../assets/colors';
 
 
 interface Props {
@@ -28,13 +29,13 @@ const IntroductDetailShop: React.FC<Props> = (props: Props) => {
                     starSize={50}
                     disabled
                     fullStar={
-                        <FontAwesomeIcon icon={faStar} color='#FD7D00' />
+                        <FontAwesomeIcon icon={faStar} color={`${colors.primary}`} />
                     }
                     emptyStar={
-                        <FontAwesomeIcon icon={faStarEmpty} color='#FD7D00' />
+                        <FontAwesomeIcon icon={faStarEmpty} color={`${colors.primary}`} />
                     }
                     halfStar={
-                        <FontAwesomeIcon icon={faStarHalfStroke} color='#FD7D00' />
+                        <FontAwesomeIcon icon={faStarHalfStroke} color={`${colors.primary}`} />
                     }
                 />
 
