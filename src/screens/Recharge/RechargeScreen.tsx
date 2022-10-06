@@ -8,6 +8,8 @@ import { faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
 import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import BtnPrimary from '../../components/BtnPrimary';
+import { useNavigation } from '@react-navigation/native';
+import { NAVIGATE_INTERNETBANKING_SCREEN } from '../../navigation/navigate';
 
 
 
@@ -24,6 +26,10 @@ const radioButtonsData: RadioButtonProps[] = [
     }]
 
 const RechargeScreen: React.FC = () => {
+    const navigation = useNavigation()
+    const onPressToInternetBanking = () => {
+        navigation.navigate(NAVIGATE_INTERNETBANKING_SCREEN)
+    }
 
     return (
         <SafeAreaView className={`bg-white flex-1`}>
@@ -47,7 +53,7 @@ const RechargeScreen: React.FC = () => {
                 </View>
 
                 <View>
-                    <BtnPrimary text='Tiếp' style='h-12 justify-center items-center m-3' />
+                    <BtnPrimary text='Tiếp' style='h-12 justify-center items-center m-3' onPress={onPressToInternetBanking} />
                 </View>
 
             </ScrollView>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import MoneyInput from './MoneyInput';
-import { FlatList, ListRenderItem, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, ListRenderItem, SafeAreaView, Text, TouchableOpacity, View, TextInput } from 'react-native';
 
 
 interface cardMoney {
@@ -52,7 +52,15 @@ const CardMoney: React.FC = () => {
             />
             <View className={`bg-backgroundBreak h-2`}></View>
             <View>
-                <MoneyInput value={status} />
+                <View className={`mt-7 ml-6`}>
+                    <Text className={`text-[#636366] text-xs font-medium`}>Số tiền (Số dư 123.000đ)</Text>
+                    <TextInput className={`h-16 text-3xl font-semibold text-[#FD7D00]`}
+                        placeholder='Nhập số tiền'
+                        value={status.toString()}
+                        onChangeText={(item) => setStatus(item)}
+                        keyboardType='numeric'
+                    />
+                </View>
             </View>
         </SafeAreaView>
     );

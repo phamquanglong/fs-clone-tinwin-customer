@@ -9,6 +9,7 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../assets/colors';
 import { useNavigation } from '@react-navigation/core';
+import { NAVIGATE_RECHARGE_HISTORY, NAVIGATE_RECHARGE_SCREEN } from '../../navigation/navigate';
 
 const WalletCard: React.FC = () => {
   const [showPrice, setShowPrice] = useState<boolean>(false);
@@ -17,6 +18,14 @@ const WalletCard: React.FC = () => {
   const onPressEye = () => {
     setShowPrice(!showPrice);
   };
+
+  const onPressToRecharge = () => {
+    navigation.navigate(NAVIGATE_RECHARGE_SCREEN)
+  }
+
+  const onPressToRechargeHistory = () => {
+    navigation.navigate(NAVIGATE_RECHARGE_HISTORY)
+  }
 
   return (
     <LinearGradient
@@ -57,11 +66,11 @@ const WalletCard: React.FC = () => {
       </View>
       <View className="h-px bg-gray-100 my-3"></View>
       <View className="flex-row justify-between">
-        <TouchableOpacity className="flex-row items-center">
+        <TouchableOpacity className="flex-row items-center" onPress={onPressToRecharge}>
           <FontAwesomeIcon icon={faArrowAltCircleRight} color={`${colors.white}`} />
           <Text className="text-white ml-3">Nạp tiền</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center">
+        <TouchableOpacity className="flex-row items-center" onPress={onPressToRechargeHistory}>
           <FontAwesomeIcon icon={faClockRotateLeft} color={`${colors.white}`} />
           <Text className="text-white ml-3">Lịch sử giao dịch</Text>
         </TouchableOpacity>
