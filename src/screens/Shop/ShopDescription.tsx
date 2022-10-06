@@ -3,6 +3,7 @@ import { SafeAreaView, Text, View, Image, ScrollView } from 'react-native';
 import ShopDetailContainer from '../../components/ShopDetail/ShopDetailContainer';
 import ProductsContainer from '../../components/product/ProductsContainer';
 import { data } from '../../Data/Data';
+import { outstanding_icon, panel_icon } from '../../assets/images';
 
 const item = [
     { id: 1, title: 'Công ty', value: 'Công Ty TNHH Cổ Phần An An' },
@@ -25,7 +26,7 @@ const ShopDescription: React.FC = () => {
                 />
             </View>
             <View className='items-center flex'>
-                <Image source={require('../../images/panel.png')} />
+                <Image source={panel_icon} />
             </View>
 
             <View>
@@ -34,7 +35,7 @@ const ShopDescription: React.FC = () => {
                     textBtn="Xem tất cả"
                     data={data}
                     title="Sản phẩm mới"
-                    icon={require('../../assets/icons/home/outstanding.png')}
+                    icon={outstanding_icon}
                 />
             </View>
 

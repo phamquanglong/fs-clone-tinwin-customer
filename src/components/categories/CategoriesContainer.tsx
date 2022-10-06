@@ -20,11 +20,11 @@ interface Props {
   icon: ImageSourcePropType;
   flatlistStyle?: object;
   textBtn: string;
-  style?: string
+  onPress: () => void
 }
 
 const CategoriesContainer: React.FC<Props> = (props: Props) => {
-  const { data, icon, title, flatlistStyle, textBtn, style } = props;
+  const { data, icon, title, flatlistStyle, textBtn, onPress } = props;
 
   const [isEnd, setIsEnd] = useState(false);
   const navigation = useNavigation()
@@ -39,9 +39,9 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
 
   const renderItem = ({ item }) =>
     title === 'Ngành hàng' ? (
-      <CategoryCard image={item.image} text={item.name} />
+      <CategoryCard image={item.image} text={item.name} onPress={onPress} />
     ) : (
-      <StallCard image={item.image} text={item.name} />
+      <StallCard item={item} />
     );
 
 

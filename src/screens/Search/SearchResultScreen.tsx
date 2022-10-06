@@ -64,10 +64,6 @@ const SearchResultScreen: React.FC = () => {
         return <Item title={item.item.title} id={item.item.id} />;
     };
 
-    const onPress = () => {
-        set;
-    };
-
     return (
         <SafeAreaView className="bg-white px-2 p-3 flex-1 h-screen">
             <ScrollView>
@@ -109,3 +105,4 @@ const SearchResultScreen: React.FC = () => {
 };
 
 export default SearchResultScreen;
+

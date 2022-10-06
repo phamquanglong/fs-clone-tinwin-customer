@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { Text, View, Image } from 'react-native';
-import { Rating } from 'react-native-ratings';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
 
 import { faStarHalfStroke } from '@fortawesome/free-regular-svg-icons';
 import Stars from 'react-native-stars';
+import { orangeLight } from '../../constant/const';
 
 
 interface Props {
@@ -29,13 +29,13 @@ const IntroductDetailShop: React.FC<Props> = (props: Props) => {
                     starSize={50}
                     disabled
                     fullStar={
-                        <FontAwesomeIcon icon={faStar} color='#FD7D00' />
+                        <FontAwesomeIcon icon={faStar} color={orangeLight} />
                     }
                     emptyStar={
-                        <FontAwesomeIcon icon={faStarEmpty} color='#FD7D00' />
+                        <FontAwesomeIcon icon={faStarEmpty} color={orangeLight} />
                     }
                     halfStar={
-                        <FontAwesomeIcon icon={faStarHalfStroke} color='#FD7D00' />
+                        <FontAwesomeIcon icon={faStarHalfStroke} color={orangeLight} />
                     }
                 />
 

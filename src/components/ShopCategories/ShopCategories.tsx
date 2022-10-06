@@ -4,6 +4,7 @@ import { SafeAreaView, Text, Image, View, TouchableOpacity, StyleSheet, FlatList
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Categories } from '../../assets/Data';
 import { useNavigation } from '@react-navigation/native';
+import { NAVIGATE_DETAIL_CATEGORIES } from '../../navigation/navigate';
 
 
 interface category {
@@ -38,9 +39,12 @@ const CategoryItem: React.FC<category> = (item) => (
 
 const ShopCaregories: React.FC = () => {
     const navigation = useNavigation()
+    const onPressRoute = () => {
+        navigation.navigate(NAVIGATE_DETAIL_CATEGORIES)
+    }
     const renderItem: ListRenderItem<category> = (item) => {
         return (
-            <CategoryItem title={item.item.title} id={item.item.id} image={item.item.image} onPress={() => navigation.navigate('DetailCategories')} />
+            <CategoryItem title={item.item.title} id={item.item.id} image={item.item.image} onPress={onPressRoute} />
         )
     }
     return (

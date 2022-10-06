@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Text, Image, View, TouchableOpacity, Animated, FlatList, ListRenderItem, ScrollView } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { useNavigation } from '@react-navigation/native';
 import FilterBtn from '../../components/buttons/FilterBtn';
 import ProductsContainer from '../../components/product/ProductsContainer';
 import { data } from '../../Data/Data';
 import SortOption from '../../components/sortOption/sortOption';
 import SearchBtnHome from '../../components/buttons/SearchBtnHome';
+import GoBackBtn from '../../components/buttons/GoBackBtn';
 
 const sortLabel = [
     { id: 1, title: "Mới nhất" },
@@ -16,25 +14,24 @@ const sortLabel = [
 ]
 
 const DetailCategoriesScreen: React.FC = () => {
-    const navigation = useNavigation()
+
 
     return (
         <SafeAreaView className={`bg-white flex-1`}>
 
             <View className="flex-row mx-3">
                 <View className={'self-center mr-4'}>
-                    <TouchableOpacity onPress={() => { navigation.goBack() }}>
-                        <FontAwesomeIcon color='#1F1F1F' icon={faChevronLeft} />
-                    </TouchableOpacity>
+
+                    <GoBackBtn />
 
                 </View>
-                <SearchBtnHome onPress={() => navigation.navigate('Search')} />
+                <SearchBtnHome />
                 <View>
                     <FilterBtn />
                 </View>
             </View>
             <View className={`flex-row`}>
-                {sortLabel.map(item => <SortOption label={sortLabel} />)}
+                {sortLabel.map(item => <SortOption label={sortLabel} key={item.id} />)}
             </View>
             <View className={`bg-white flex-1`}>
                 <ProductsContainer

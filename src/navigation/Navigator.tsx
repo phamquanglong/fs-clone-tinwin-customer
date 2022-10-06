@@ -7,9 +7,12 @@ import TabBar from './TabBar';
 import AddNewAddressScreen from '../screens/account/AddNewAddressScreen';
 import ProductDetailScreen from '../screens/ProductDetail/ProductDetailScreen';
 import RatingScreen from '../screens/ProductDetail/RatingScreen';
+import SearchScreen from '../screens/Search/SearchScreen';
+import SearchResultScreen from '../screens/Search/SearchResultScreen';
 import FilterScreen from '../screens/categories/FilterScreen';
 import CartNavigator from '../screens/Cart/CartNavigator';
 import UpdateInfoScreen from '../screens/account/UpdateInfoScreen';
+import ShopDetailScreen from '../screens/Shop/ShopDetailScreen';
 import OrderSuccess from '../screens/Payment/OrderSuccess';
 import InternetBanking from '../screens/Payment/InternetBanking';
 import Payment from '../screens/Payment/Payment';
@@ -27,6 +30,7 @@ import DetailCategoriesScreen from '../screens/Shop/DetailCategoriesScreen';
 import RechargeHistoryScreen from '../screens/Recharge/RechargeHistoryScreen';
 import RechargeScreen from '../screens/Recharge/RechargeScreen';
 import Order from '../screens/StatusOrder/Order';
+import DetailCategoriesScreen from '../screens/Shop/DetailCategoriesScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -103,11 +107,16 @@ const Navigator: React.FC = () => {
           component={AddressScreen}
           options={screenOptions}
         />
-        {/* <Stack.Screen
-          name="AddNewAddress"
-          component={AddNewAddressScreen}
+        <Stack.Screen
+          name="Search"
+          component={SearchScreen}
           options={screenOptions}
-        /> */}
+        />
+        <Stack.Screen
+          name="SearchResult"
+          component={SearchResultScreen}
+          options={screenOptions}
+        />
         <Stack.Screen
           name="ProductDetail"
           component={ProductDetailScreen}
@@ -116,6 +125,20 @@ const Navigator: React.FC = () => {
         <Stack.Screen
           name="Rating"
           component={RatingScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+
+          name="AddNewAddress"
+          component={AddNewAddressScreen} />
+        <Stack.Screen
+          name='ShopDetail'
+          component={ShopDetailScreen}
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name='DetailCategories'
+          component={DetailCategoriesScreen}
           options={screenOptions}
         />
         <Stack.Screen

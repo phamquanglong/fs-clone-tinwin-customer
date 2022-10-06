@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, Text, Touchable, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, Text, Touchable, TouchableOpacity, View } from 'react-native';
 import SortOption from '../../components/sortOption/sortOption';
 import ProductsContainer from '../../components/product/ProductsContainer';
 import { data } from '../../Data/Data';
@@ -14,8 +14,7 @@ const sortLabel = [
 const ProductsOfShop: React.FC = () => {
 
     return (
-        <ScrollView nestedScrollEnabled={true} className="bg-white flex-1">
-
+        <SafeAreaView className={`bg-white flex-1`}>
             <View>
                 <SortOption label={sortLabel} />
             </View>
@@ -26,9 +25,7 @@ const ProductsOfShop: React.FC = () => {
 
                 />
             </View>
-
-
-        </ScrollView>
+        </SafeAreaView>
     );
 };
 
