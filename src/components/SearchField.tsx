@@ -5,38 +5,76 @@ import {
     StyleSheet,
     TouchableOpacity,
     Image,
+    FlatList,
+    Text,
 } from 'react-native';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { useSearchProduct } from '../hooks/search/searchProduct';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import TitleSearch from './item/TitleSearch';
 import { colors } from '../assets/colors';
+import { cancel_icon } from '../assets/images';
+import { useNavigation } from '@react-navigation/native';
+import { NAVIGATE_HOME, NAVIGATE_SEARCH_DETAIL_SCREEN } from '../navigation/navigate'
 
 interface TextFieldProps {
     width: number;
     placeholder: string;
 }
 
-export const SearchBar: React.FC<TextFieldProps> = ({
-    width,
-    placeholder = 'Tìm kiếm',
-}) => {
+
+const SearchBar: React.FC<TextFieldProps> = (props) => {
+    const { width, placeholder } = props
     const [searchText, setSearchText] = useState('');
+    const [product, setProduct] = useState([])
+    const navigation = useNavigation();
+
+    const onPressRouteHome = () => {
+        navigation.navigate(NAVIGATE_HOME)
+    }
+
+    const check = useSearchProduct(searchText)
+    console.log(check)
+
 
     return (
-        <View
-            className={`flex-row  h-[45px]
+        <View>
+            <View className={`flex-row`}>
+                <View
+                    className={`flex-row  h-[45px]
         rounded-lg border-solid border border-gray-200 px-3.5`}
-            style={{ width: width }}>
-            <View className="pt-3.5">
-                <FontAwesomeIcon icon={faMagnifyingGlass} color={`${colors.lightGray}`} size={18} />
+                    style={{ width: width }}>
+
+                    <View className="pt-3.5">
+                        <FontAwesomeIcon icon={faMagnifyingGlass} color={`${colors.lightGray}`} size={18} />
+                    </View>
+                    <TextInput
+                        className={`pl-2`}
+                        placeholder={placeholder}
+                        autoCapitalize="none"
+                        onChangeText={(text) => setSearchText(text)}
+                    // value={searchText}
+                    />
+
+
+                </View >
+                <View className={`flex self-center ml-6`}>
+                    <TouchableOpacity onPress={onPressRouteHome}>
+                        <Image source={cancel_icon} />
+                    </TouchableOpacity>
+                </View>
             </View>
-            <TextInput
-                className={`pl-2`}
-                placeholder={placeholder}
-                autoCapitalize="none"
-                onChangeText={text => setSearchText(text)}
-            // value={searchText}
-            />
+
+            <View >
+                {
+                    check.map(item => <TitleSearch title={item} />)
+                }
+            </View>
         </View>
+
     );
 };
+
+export default SearchBar

@@ -1,0 +1,1 @@
+export const getSearchState = (state: any) => state.productName
