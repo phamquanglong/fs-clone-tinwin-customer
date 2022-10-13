@@ -28,7 +28,7 @@ const useGetUser = () => {
           AsyncStorage.setItem('token', res.data.access_token);
         })
         .catch(err => console.log(err));
-      await UserServices.getUser()
+      await UserServices.getUser1()
         .then(res => {
           dispatchSetUser(res.data);
         })

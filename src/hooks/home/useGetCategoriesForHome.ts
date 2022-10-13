@@ -7,7 +7,10 @@ const useGetCategoriesForHome = () => {
 
   useEffect(() => {
     HomeServices.getCategoriesForHome()
-      .then(res => setRes(res.data))
+      .then(res => {
+        setRes(res.data);
+        console.log({categories: res});
+      })
       .catch(err => console.log(err))
       .then(() => setLoadingCategories(false));
   }, []);

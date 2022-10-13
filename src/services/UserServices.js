@@ -1,17 +1,23 @@
 import {get, post, postHeadersUrl, put, putUpload} from './AxiosHelper';
 
 const UserServices = {
-  getUser(params) {
-    return get('/auth/api/account/my-profile', params);
+  getUser() {
+    return get('/webbff/auth/api/account/my-profileauth/connect/userinfo');
   },
   login(postData) {
-    return postHeadersUrl('/auth/connect/token', postData);
+    return postHeadersUrl('/webbff/auth/connect/token', postData);
   },
   uploadAvatar(putData) {
-    return putUpload('/auth/api/account/my-profile/update-avatar', putData);
+    return putUpload(
+      '/webbff/auth/api/account/my-profile/update-avatar',
+      putData,
+    );
   },
   updateInfo(putData) {
-    return put('/auth/api/account/my-profile/update-profile', putData);
+    return put('/webbff/auth/api/account/my-profile/update-profile', putData);
+  },
+  getUser1(params) {
+    return get('/webbff/auth/api/account/my-profile', params);
   },
 };
 

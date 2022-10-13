@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons';
 import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity, Image, Text, View} from 'react-native';
+import {TouchableOpacity, Image, Text, View, StyleSheet} from 'react-native';
 import {Rating} from 'react-native-ratings';
 import useConvertToVND from '../../hooks/useConvertToVND';
 import useAddToWishlist from '../../hooks/wishlist/useAddToWishlist';
