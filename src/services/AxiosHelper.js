@@ -21,6 +21,7 @@ export const get = (path, params) => {
       headers: {
         'Content-Type': 'application/json',
         // 'Authorization': Bearer ${token},
+
       },
     })
     .then(res => {

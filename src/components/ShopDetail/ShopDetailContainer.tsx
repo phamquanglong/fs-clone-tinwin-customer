@@ -3,13 +3,14 @@ import InfoDetailShop from './InfoDetailShop';
 import HomeTitle from '../home/HomeTitle';
 
 interface Props {
+    data: object,
     title: string;
     icon: ImageSourcePropType;
-    data: object[]
+    // data: object[]
 }
 
 const ShopDetailContainer: React.FC<Props> = (props) => {
-    const { data } = props
+    const { data, } = props
     const renderItem = ({ item }) => (
         <InfoDetailShop
             title={item.title}

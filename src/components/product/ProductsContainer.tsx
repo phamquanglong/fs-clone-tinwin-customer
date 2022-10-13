@@ -14,6 +14,7 @@ interface Props {
 const ProductsContainer: React.FC<Props> = (props: Props) => {
   const { data, icon, title, flatlistStyle, textBtn } = props;
 
+
   const [isEnd, setIsEnd] = useState(false);
 
   const renderItem = ({ item }) => (

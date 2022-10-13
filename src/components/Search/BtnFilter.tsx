@@ -1,5 +1,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import React, { Component, useState } from 'react';
+import { getShopById } from '../../hooks/shops/useGetShops';
 import {
     FlatList,
     Platform,
@@ -12,11 +13,14 @@ import {
 
 interface Props {
     label: object[];
+    shop: object
+    id: string;
+    productData: object
 }
 
 
 const BtnFilter: React.FC<Props> = props => {
-    const { label } = props;
+    const { label, shop, id, productData } = props;
     const [status, setStatus] = useState(label[0].title);
 
     const renderItem = ({ item }) => (
@@ -48,7 +52,7 @@ const BtnFilter: React.FC<Props> = props => {
                     <View key={item.id} >
                         {status === item.title && item.component ?
                             <View>
-                                <item.component />
+                                <item.component shop={shop} id={id} productData={productData} />
                             </View> : ''
                         }
 

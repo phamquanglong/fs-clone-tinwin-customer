@@ -1,10 +1,10 @@
-import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
-import React, {useEffect} from 'react';
-import {styles} from './style';
-import {useNavigation} from '@react-navigation/native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import React, { useEffect } from 'react';
+import { styles } from './style';
+import { useNavigation } from '@react-navigation/native';
 import BtnOrder from '../../components/buttons/BtnOrder';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import {
   anotherOrange,
   beige,
@@ -20,9 +20,9 @@ type Props = {};
 
 const DetailOrder: React.FC = (props: Props) => {
   const navigation = useNavigation();
-  const {titleBtn, btnPrimary} = props;
+  const { titleBtn, btnPrimary } = props;
   var x = 1000000;
-  x = x.toLocaleString('it-IT', {style: 'currency', currency: 'VND'});
+  x = x.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
 
   const navigatePayment = () => {
     navigation.navigate('Payment');
@@ -154,8 +154,8 @@ const DetailOrder: React.FC = (props: Props) => {
   );
 };
 const style1 = StyleSheet.create({
-  line: {flex: 1, height: 1, backgroundColor: whiteGrey},
-  mb10: {marginBottom: 10},
+  line: { flex: 1, height: 1, backgroundColor: whiteGrey },
+  mb10: { marginBottom: 10 },
   dateTime: {
     fontWeight: '500',
     fontSize: 12,
@@ -185,8 +185,8 @@ const style1 = StyleSheet.create({
     marginTop: 4,
     marginBottom: 10,
   },
-  flex: {flexDirection: 'row', justifyContent: 'space-between'},
-  flex1: {flexDirection: 'row'},
+  flex: { flexDirection: 'row', justifyContent: 'space-between' },
+  flex1: { flexDirection: 'row' },
   code: {
     marginLeft: 13,
     fontWeight: '400',
@@ -206,7 +206,7 @@ const style1 = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 30,
   },
-  mt: {marginTop: 11},
+  mt: { marginTop: 11 },
   wallet: {
     marginLeft: 11.5,
     fontWeight: '500',
@@ -214,7 +214,7 @@ const style1 = StyleSheet.create({
     lineHeight: 22,
     color: colorTextTitleNotifi,
   },
-  imgWallet: {width: 19, height: 19},
+  imgWallet: { width: 19, height: 19 },
   pttt: {
     marginLeft: 24,
     marginTop: 11,
@@ -256,7 +256,7 @@ const style1 = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  mt5: {marginTop: 5},
+  mt5: { marginTop: 5 },
   address: {
     fontWeight: '500',
     fontSize: 12,
@@ -276,8 +276,8 @@ const style1 = StyleSheet.create({
     lineHeight: 22,
     color: anotherOrange,
   },
-  m1520: {marginLeft: 15, marginRight: 50},
-  row: {flexDirection: 'row'},
+  m1520: { marginLeft: 15, marginRight: 50 },
+  row: { flexDirection: 'row' },
   addressTitle: {
     marginLeft: 24,
     marginTop: 7,
@@ -294,7 +294,7 @@ const style1 = StyleSheet.create({
     lineHeight: 18,
     color: black,
   },
-  ImgLogo: {width: 40, height: 40},
+  ImgLogo: { width: 40, height: 40 },
   box: {
     //   flex: 1,
     borderWidth: 1,

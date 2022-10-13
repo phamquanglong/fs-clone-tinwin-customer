@@ -4,53 +4,31 @@ import { SafeAreaView, Text, Image, View, TouchableOpacity, StyleSheet, FlatList
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Categories } from '../../assets/Data';
 import { useNavigation } from '@react-navigation/native';
+import CategoryItem from './CategoryItem';
 import { NAVIGATE_DETAIL_CATEGORIES } from '../../navigation/navigate';
 
-
-interface category {
-    id: string,
-    title: string,
-    image?: string,
-    count?: string,
-    onPress?: () => void
+interface Props {
+    data: object[]
+    shopId: string
 }
-
-const CategoryItem: React.FC<category> = (item) => (
-    <View className={`flex-1`} >
-
-        <TouchableOpacity className={`mx-6 mb-5 flex-row h-[75px]`} onPress={item.onPress}>
-            {item.image &&
-                <View className={`w-[75px] h-[75px] mr-6 border border-[#D7D7D7] rounded-[10px] justify-center items-center`}>
-                    <Image source={item.image} />
-                </View>
-            }
-
-            <View className={` justify-center `}>
-                <Text className={`text-center text-sm leading-[14px] text-[#2E2E2E] font-medium`} >{item.title}</Text>
-            </View>
-            <View className={` absolute right-3 top-7 `}>
-                <FontAwesomeIcon icon={faChevronRight} />
-            </View>
-
-        </TouchableOpacity>
-
-    </View>
-)
-
-const ShopCaregories: React.FC = () => {
+const ShopCaregories: React.FC<Props> = (props) => {
+    const { data, shopId } = props
     const navigation = useNavigation()
-    const onPressRoute = () => {
-        navigation.navigate(NAVIGATE_DETAIL_CATEGORIES)
+    const onPressRoute = (id?: string) => {
+        navigation.navigate(NAVIGATE_DETAIL_CATEGORIES, { shopId: shopId, id: id, })
     }
-    const renderItem: ListRenderItem<category> = (item) => {
+    const renderItem = ({ item }) => {
         return (
-            <CategoryItem title={item.item.title} id={item.item.id} image={item.item.image} onPress={onPressRoute} />
+
+            <CategoryItem title={item.name} id={item.id} image={item.avatar} onPress={() => onPressRoute(item.id)} />
         )
     }
     return (
         <View className={`mt-6`}>
-            <FlatList data={Categories} renderItem={renderItem} />
-
+            <FlatList data={data} renderItem={renderItem} />
+            <View>
+                <CategoryItem title={"Tất cả sản phẩm"} id={'1'} onPress={() => onPressRoute()} />
+            </View>
         </View>
 
     )

@@ -19,6 +19,8 @@ import { cancel_icon } from '../assets/images';
 import { useNavigation } from '@react-navigation/native';
 import { NAVIGATE_HOME, NAVIGATE_SEARCH_DETAIL_SCREEN } from '../navigation/navigate'
 
+
+
 interface TextFieldProps {
     width: number;
     placeholder: string;
@@ -28,16 +30,13 @@ interface TextFieldProps {
 const SearchBar: React.FC<TextFieldProps> = (props) => {
     const { width, placeholder } = props
     const [searchText, setSearchText] = useState('');
-    const [product, setProduct] = useState([])
     const navigation = useNavigation();
 
     const onPressRouteHome = () => {
         navigation.navigate(NAVIGATE_HOME)
     }
 
-    const check = useSearchProduct(searchText)
-    console.log(check)
-
+    const product = useSearchProduct(searchText)
 
     return (
         <View>
@@ -69,7 +68,7 @@ const SearchBar: React.FC<TextFieldProps> = (props) => {
 
             <View >
                 {
-                    check.map(item => <TitleSearch title={item} />)
+                    product.map(item => <TitleSearch title={item} />)
                 }
             </View>
         </View>

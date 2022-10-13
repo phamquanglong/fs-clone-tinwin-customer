@@ -7,17 +7,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {styles} from '../StatusOrder/style';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import { styles } from '../StatusOrder/style';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
   faAngleRight,
   faMinusCircle,
   faPlusCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import {RadioButton} from '../../components/buttons/RadioButton';
-import {RadioOrangeBtn} from '../../components/buttons/RadioOrangeBtn';
+import { RadioButton } from '../../components/buttons/RadioButton';
+import { RadioOrangeBtn } from '../../components/buttons/RadioOrangeBtn';
 import BtnOrder from '../../components/buttons/BtnOrder';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import {
   anotherOrange,
   colorTextTitleNotifi,
@@ -30,7 +30,7 @@ type Props = {};
 
 const Payment = (props: Props) => {
   var x = 1000000;
-  x = x.toLocaleString('it-IT', {style: 'currency', currency: 'VND'});
+  x = x.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
   const navigation = useNavigation();
   const navigate = () => {
     navigation.navigate('InternetBanking');
@@ -206,14 +206,14 @@ const styles1 = StyleSheet.create({
     lineHeight: 22,
     color: anotherOrange,
   },
-  btntt: {marginTop: 15},
+  btntt: { marginTop: 15 },
   titleTotalMoney: {
     fontWeight: '400',
     fontSize: 16,
     lineHeight: 22,
     color: darkestGrey,
   },
-  line: {flex: 1, height: 1, backgroundColor: whiteGrey},
+  line: { flex: 1, height: 1, backgroundColor: whiteGrey },
   boxLine: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -227,12 +227,12 @@ const styles1 = StyleSheet.create({
     lineHeight: 22,
     color: colorTextTitleNotifi,
   },
-  imgCredit: {width: 19, height: 19},
+  imgCredit: { width: 19, height: 19 },
   boxImgCredit: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  marginRb: {marginRight: 19.5},
+  marginRb: { marginRight: 19.5 },
   flex: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -244,7 +244,7 @@ const styles1 = StyleSheet.create({
     lineHeight: 22,
     color: colorTextTitleNotifi,
   },
-  BoxPay: {marginTop: 11, height: 387, backgroundColor: white},
+  BoxPay: { marginTop: 11, height: 387, backgroundColor: white },
   textpttt: {
     marginLeft: 24,
     marginTop: 11,
@@ -270,7 +270,7 @@ const styles1 = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 20,
   },
-  img20: {width: 20, height: 20},
+  img20: { width: 20, height: 20 },
   count: {
     marginLeft: 3,
     marginRight: 3,
@@ -295,7 +295,7 @@ const styles1 = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  mt: {marginTop: 5},
+  mt: { marginTop: 5 },
   angleRight: {
     position: 'absolute',
     right: 0,
@@ -320,8 +320,8 @@ const styles1 = StyleSheet.create({
     lineHeight: 22,
     color: anotherOrange,
   },
-  boxAddress: {marginLeft: 15, marginRight: 50},
-  styFlex: {flexDirection: 'row'},
-  justi: {justifyContent: 'space-between'},
+  boxAddress: { marginLeft: 15, marginRight: 50 },
+  styFlex: { flexDirection: 'row' },
+  justi: { justifyContent: 'space-between' },
 });
 export default Payment;

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {anotherOrange, beige, black, white} from '../../constant/const';
+import { anotherOrange, beige, black, white } from '../../constant/const';
 
 type Props = {};
 
@@ -41,7 +41,7 @@ const OrderSuccess = (props: Props) => {
 export default OrderSuccess;
 
 const styles = StyleSheet.create({
-  textBuyAgain: {alignItems: 'center', padding: 14, borderWidth: 1},
+  textBuyAgain: { alignItems: 'center', padding: 14, borderWidth: 1 },
   textCode: {
     fontWeight: '400',
     fontSize: 12,
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 53,
   },
-  imgLogO: {width: 101, height: 85, alignSelf: 'center'},
-  padding: {padding: 24},
-  container: {backgroundColor: white, height: '100%'},
+  imgLogO: { width: 101, height: 85, alignSelf: 'center' },
+  padding: { padding: 24 },
+  container: { backgroundColor: white, height: '100%' },
 });

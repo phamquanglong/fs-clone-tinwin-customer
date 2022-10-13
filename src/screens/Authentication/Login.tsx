@@ -3,10 +3,10 @@ import {
   faFacebook,
   faGooglePlus,
 } from '@fortawesome/free-brands-svg-icons';
-import {faEyeSlash} from '@fortawesome/free-regular-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {useNavigation} from '@react-navigation/native';
-import {useEffect, useState} from 'react';
+import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 import {
   Image,
   Keyboard,
@@ -31,17 +31,17 @@ import {
   orangeLight,
   white,
 } from '../../constant/const';
-import {style} from './style';
-import {ScrollView} from 'react-native';
+import { style } from './style';
+import { ScrollView } from 'react-native';
 
-const Login: React.FC = ({}) => {
+const Login: React.FC = ({ }) => {
   const navigation = useNavigation();
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [userName, setUserName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   useEffect(() => {
     Keyboard.dismiss();
-    return () => {};
+    return () => { };
   }, []);
 
   const setUser = (text: string) => {
@@ -125,8 +125,8 @@ const Login: React.FC = ({}) => {
           <LinearGradient
             className={`rounded-md`}
             colors={[orangeLight, orangeDark]}
-            start={{x: 0, y: 0.5}}
-            end={{x: 1, y: 0.5}}
+            start={{ x: 0, y: 0.5 }}
+            end={{ x: 1, y: 0.5 }}
             locations={[0, 1]}
             style={style1.btnLogin}>
             <TouchableOpacity className="p-3" onPress={navigateTabBar}>
@@ -164,7 +164,7 @@ const style1 = StyleSheet.create({
     fontWeight: '600',
     lineHeight: 22,
   },
-  rowCenter: {flexDirection: 'row', alignItems: 'center'},
+  rowCenter: { flexDirection: 'row', alignItems: 'center' },
   loginWith: {
     flex: 1,
     flexDirection: 'row',
@@ -185,8 +185,8 @@ const style1 = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 18,
   },
-  registerPrimary: {color: anotherOrange},
-  btnLogin: {alignItems: 'center', height: 50},
+  registerPrimary: { color: anotherOrange },
+  btnLogin: { alignItems: 'center', height: 50 },
   boxForgot: {
     position: 'absolute',
     right: 20,
@@ -194,10 +194,10 @@ const style1 = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  grey: {color: grey},
-  mb20: {marginBottom: 20},
-  mt40mb31: {marginTop: 40, marginBottom: 31},
-  tripleIcon: {flex: 1, height: 1, backgroundColor: moreLightGrey},
-  continue: {width: 130, textAlign: 'center', color: darkGrey},
+  grey: { color: grey },
+  mb20: { marginBottom: 20 },
+  mt40mb31: { marginTop: 40, marginBottom: 31 },
+  tripleIcon: { flex: 1, height: 1, backgroundColor: moreLightGrey },
+  continue: { width: 130, textAlign: 'center', color: darkGrey },
 });
 export default Login;

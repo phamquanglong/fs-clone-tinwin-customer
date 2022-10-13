@@ -9,6 +9,7 @@ import { orangeLight } from '../../constant/const';
 
 
 interface Props {
+
     title: string;
     value: string;
     rating: number
@@ -16,6 +17,7 @@ interface Props {
 
 const IntroductDetailShop: React.FC<Props> = (props: Props) => {
     const { title, value, rating } = props;
+
 
     return (
         <View >

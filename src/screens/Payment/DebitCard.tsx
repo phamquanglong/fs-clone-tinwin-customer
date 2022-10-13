@@ -53,9 +53,9 @@ const DebitCard = (props: Props) => {
               className={`pl-2`}
               placeholder={'Nhập số in trên thẻ'}
               autoCapitalize="none"
-              // onChangeText={text => setSearchText(text)}
+            // onChangeText={text => setSearchText(text)}
 
-              // value={searchText}
+            // value={searchText}
             />
           </View>
           <Text style={[style1.textInput, style1.margin]}>
@@ -68,9 +68,9 @@ const DebitCard = (props: Props) => {
               className={`pl-2`}
               placeholder={'Nhập tên in trên thẻ'}
               autoCapitalize="none"
-              // onChangeText={text => setSearchText(text)}
+            // onChangeText={text => setSearchText(text)}
 
-              // value={searchText}
+            // value={searchText}
             />
           </View>
 
@@ -86,9 +86,9 @@ const DebitCard = (props: Props) => {
                   className={`pl-2`}
                   placeholder={'Nhập ngày hết hạn'}
                   autoCapitalize="none"
-                  // onChangeText={text => setSearchText(text)}
+                // onChangeText={text => setSearchText(text)}
 
-                  // value={searchText}
+                // value={searchText}
                 />
               </View>
             </View>
@@ -103,9 +103,9 @@ const DebitCard = (props: Props) => {
                   className={`pl-2`}
                   placeholder={'Nhập mã'}
                   autoCapitalize="none"
-                  // onChangeText={text => setSearchText(text)}
+                // onChangeText={text => setSearchText(text)}
 
-                  // value={searchText}
+                // value={searchText}
                 />
               </View>
             </View>
@@ -137,7 +137,7 @@ const style1 = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  imageCard: {width: 23, height: 18},
+  imageCard: { width: 23, height: 18 },
   container: {
     backgroundColor: white,
     paddingBottom: 30,
@@ -146,7 +146,7 @@ const style1 = StyleSheet.create({
     paddingTop: 30,
     height: '100%',
   },
-  h88: {height: '88%'},
+  h88: { height: '88%' },
   textInput: {
     fontWeight: '500',
     fontSize: 14,
@@ -158,10 +158,10 @@ const style1 = StyleSheet.create({
     marginBottom: 5,
     marginTop: 10,
   },
-  redText: {color: red},
-  flex: {flexDirection: 'row', justifyContent: 'space-between'},
-  w: {width: 181},
-  w1: {width: 136},
-  w100: {width: '100%'},
+  redText: { color: red },
+  flex: { flexDirection: 'row', justifyContent: 'space-between' },
+  w: { width: 181 },
+  w1: { width: 136 },
+  w100: { width: '100%' },
 });
 export default DebitCard;

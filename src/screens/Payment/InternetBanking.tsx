@@ -1,9 +1,9 @@
-import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
 import React from 'react';
-import {styles} from '../StatusOrder/style';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
-import {anotherGrey, colorBoxBank, darkerGrey} from '../../constant/const';
+import { styles } from '../StatusOrder/style';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { anotherGrey, colorBoxBank, darkerGrey } from '../../constant/const';
 
 type Props = {};
 
@@ -19,9 +19,9 @@ const InternetBanking = (props: Props) => {
           className={`pl-2`}
           placeholder={'Tìm kiếm'}
           autoCapitalize="none"
-          // onChangeText={text => setSearchText(text)}
+        // onChangeText={text => setSearchText(text)}
 
-          // value={searchText}
+        // value={searchText}
         />
       </View>
       <View style={style1.viewBox}>
@@ -56,12 +56,12 @@ const style1 = StyleSheet.create({
     lineHeight: 12,
     color: darkerGrey,
   },
-  imgBank: {alignSelf: 'center', width: 48, height: 48},
+  imgBank: { alignSelf: 'center', width: 48, height: 48 },
   viewBox: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
-  w100: {width: '100%'},
+  w100: { width: '100%' },
 });
 export default InternetBanking;
