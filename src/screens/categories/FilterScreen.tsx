@@ -46,7 +46,7 @@ const FilterScreen: React.FC = () => {
 
   return (
     <SafeAreaView>
-      <View className="bg-white p-3 flex-1 h-full">
+      <View className="bg-white p-3 h-full">
         <View className="flex-row items-center justify-between">
           <Text className="text-lg font-bold text-black">Bộ lọc tìm kiếm</Text>
           <CloseBtn onPress={goBack} />

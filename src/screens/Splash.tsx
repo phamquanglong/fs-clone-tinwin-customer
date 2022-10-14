@@ -29,13 +29,13 @@ const Splash: React.FC = () => {
         end={{x: 1, y: 0.5}}
         locations={[0, 1]}>
         <Animated.View
-          className="flex-1 h-full items-center justify-center"
+          className="h-full items-center justify-center"
           style={{opacity: logoOpacity}}>
           <Image
             className="h-48 w-60 "
             source={require('../assets/logoTinwin.png')}
           />
-          <Text className="text-white font-bold text-2xl">
+          <Text className="text-white font-bold text-2xl ">
             Xoá mọi khoảng cách
           </Text>
         </Animated.View>

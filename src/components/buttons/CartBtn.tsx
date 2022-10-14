@@ -1,7 +1,7 @@
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNavigation} from '@react-navigation/native';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import useGetCart from '../../hooks/cart/useGetCart';
@@ -19,6 +19,7 @@ const CartBtn: React.FC<Props> = (props: Props) => {
   const navigation = useNavigation();
   const {color, style} = props;
   const count = useGetCartCount();
+  // const [count, setCount] = useState(0);
 
   const navigateCart = () => {
     navigation.navigate(NAVIGATE_CART);

@@ -65,10 +65,10 @@ const Login: React.FC = ({}) => {
       navigation.navigate('TabBar');
     }
   }, [navigation, user]);
-  useEffect(() => {
-    Keyboard.dismiss();
-    dispatch(getUser());
-  }, []);
+  // useEffect(() => {
+  //   Keyboard.dismiss();
+  //   dispatch(getUser());
+  // }, []);
 
   const setUser = (text: string) => {
     setUserName(text);
@@ -112,13 +112,12 @@ const Login: React.FC = ({}) => {
     }
     setSecurityPassword(true);
 
-    // dispatch(
-    //   login({
-    //     username: userName,
-    //     password: password,
-    //   }),
-    // );
-    console.log(1);
+    dispatch(
+      login({
+        username: userName,
+        password: password,
+      }),
+    );
     AuthenticationServices.login({
       username: userName,
       password: password,

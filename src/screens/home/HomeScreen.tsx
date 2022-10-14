@@ -19,6 +19,7 @@ import useGetCategories from '../../hooks/categories/useGetCategories';
 import useGetCategoriesForHome from '../../hooks/home/useGetCategoriesForHome';
 import useGetProductForHome from '../../hooks/home/useGetProductForHome';
 import useGetSupplier from '../../hooks/home/useGetSupplier';
+import {useState} from 'react';
 
 export const data = [
   {
@@ -88,8 +89,9 @@ const HomeScreen: React.FC = () => {
   const {categories, loadingCategories} = useGetCategoriesForHome();
   const products = useGetProductForHome();
   const suppliers = useGetSupplier();
-
-  console.log({categories, products, suppliers});
+  // const [categories, setCategories] = useState([]);
+  // const [products, setProducts] = useState([]);
+  // const [suppliers, setSupplier] = useState([]);
 
   return (
     <SafeAreaView className="bg-white h-full">

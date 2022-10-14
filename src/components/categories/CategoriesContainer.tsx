@@ -50,7 +50,11 @@ const CategoriesContainer: React.FC<Props> = (props: Props) => {
 
   const renderItem = ({item}) =>
     title === 'Ngành hàng' ? (
-      <CategoryCard image={item.image} text={item.name} onPress={onPress} />
+      <CategoryCard
+        image={item.image !== undefined ? item.image : item.avatar}
+        text={item.name}
+        onPress={onPress}
+      />
     ) : (
       <StallCard
         image={item.avatar}

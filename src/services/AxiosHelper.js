@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import {baseUrl} from '../Ultis/Constant/const';
+var qs = require('qs');
 
 const headersFormUrl = 'application/x-www-form-urlencoded';
 export const get = async (path, params) => {
@@ -75,23 +76,29 @@ export const post = async (path, postData) => {
       },
     })
     .then(res => {
+      console.log(res);
       return new Promise(resolve => {
         resolve(res);
       });
     })
     .catch(err => {
+      console.log(err);
       return new Promise(resolve => {
         resolve(err.response);
       });
     });
 };
 export const postHeadersUrl = async (path, postData) => {
-  return await axios
-    .post(baseUrl + path, postData, {
-      headers: {
-        'Content-Type': headersFormUrl,
-      },
-    })
+  const data = qs.stringify(postData);
+  var config = {
+    method: 'post',
+    url: baseUrl + path,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    data: data,
+  };
+  return await axios(config)
     .then(res => {
       return new Promise(resolve => {
         resolve(res);
@@ -124,23 +131,17 @@ export const deleteMethod = async (path, id) => {
 };
 export const put = async (path, params) => {
   const token = await AsyncStorage.getItem('token');
-  if (params !== undefined) {
-    if (params instanceof Object) {
-      path +=
-        '?' +
-        Object.keys(params)
-          .map(key => key + '=' + params[key])
-          .join('&');
-    } else {
-      path += '/' + params;
-    }
-  }
-  return axios
-    .put(baseUrl + path, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+  const data = JSON.stringify(params);
+  var config = {
+    method: 'put',
+    url: baseUrl + path,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    data: data,
+  };
+  return axios(config)
     .then(res => {
       return new Promise(resolve => {
         resolve(res);
